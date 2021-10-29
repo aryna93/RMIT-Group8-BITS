@@ -1,4 +1,4 @@
-package com.example.hability
+package com.syncstorm.hability
 
 import org.junit.Test
 
