@@ -8,7 +8,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.tabs.TabLayout
+import com.syncstorm.hability.R
 import com.syncstorm.hability.databinding.FragmentCalendarBinding
+
 
 class CalendarFragment : Fragment() {
 
@@ -30,10 +34,50 @@ class CalendarFragment : Fragment() {
         _binding = FragmentCalendarBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textCalendar
-        calendarViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+        // removed the text view from the XML
+//        val textView: TextView = binding.textCalendar
+//        calendarViewModel.text.observe(viewLifecycleOwner, Observer {
+//            textView.text = it
+//
+//        })
+
+        val tabLayoutCal = root.findViewById<TabLayout>(R.id.tab_layout_cal)
+        val viewPager2Cal = root.findViewById<ViewPager2>(R.id.view_pager2_cal)
+
+        var adapter = FragmentAdapterCal(childFragmentManager, lifecycle)
+        viewPager2Cal.adapter = adapter
+
+        tabLayoutCal.addTab(tabLayoutCal.newTab().setText("Day"))
+        tabLayoutCal.addTab(tabLayoutCal.newTab().setText("Week"))
+        tabLayoutCal.addTab(tabLayoutCal.newTab().setText("Month"))
+
+        tabLayoutCal.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+
+            override fun onTabSelected(tab : TabLayout.Tab)
+            {
+                viewPager2Cal.currentItem = tab.position
+            }
+
+            override fun onTabUnselected(tab : TabLayout.Tab)
+            {
+
+            }
+
+            override fun onTabReselected(tab : TabLayout.Tab)
+            {
+
+            }
+
         })
+
+        viewPager2Cal.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+            override fun onPageSelected(position: Int)
+            {
+                tabLayoutCal.selectTab(tabLayoutCal.getTabAt(position))
+            }
+
+        })
+
         return root
     }
 
