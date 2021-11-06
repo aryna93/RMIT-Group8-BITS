@@ -11,7 +11,14 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import androidx.lifecycle.ViewModel
+import com.google.android.material.snackbar.Snackbar.make
 import com.syncstorm.hability.databinding.ActivityMainBinding
+import com.syncstorm.hability.ui.goals.GoalsFragment
+import com.syncstorm.hability.ui.goals.GoalsViewModel
+import kotlin.concurrent.fixedRateTimer
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +37,8 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Create a new event", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
+
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
@@ -37,7 +46,12 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_calendar, R.id.nav_scheduler
+                R.id.nav_home,
+                R.id.nav_calendar,
+                R.id.nav_scheduler,
+                R.id.nav_goals,
+                R.id.nav_statistics,
+                R.id.nav_settings
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
