@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.syncstorm.hability.databinding.FragmentSchedulerBinding
+import android.widget.Button
+import com.syncstorm.hability.R
 
 class SchedulerFragment : Fragment() {
 
@@ -24,6 +26,9 @@ class SchedulerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+         Button button = findViewById(R.id.addTask);
+
+
         schedulerViewModel =
             ViewModelProvider(this).get(SchedulerViewModel::class.java)
 
@@ -34,6 +39,8 @@ class SchedulerFragment : Fragment() {
         schedulerViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+
+
         return root
     }
 
@@ -41,4 +48,5 @@ class SchedulerFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }
