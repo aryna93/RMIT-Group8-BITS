@@ -21,12 +21,11 @@ class SchedulerFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-         Button button = findViewById(R.id.addTask);
+    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        View view = inflater.inflate(R.layout.fragment_scheduler, container, false);
+
+        Button() addTask = (Button)view.findViewById(R.id.addTask);
+
 
 
         schedulerViewModel =
@@ -41,8 +40,11 @@ class SchedulerFragment : Fragment() {
         })
 
 
-        return root
+     return view
     }
+
+
+
 
     override fun onDestroyView() {
         super.onDestroyView()
