@@ -1,5 +1,6 @@
 package com.syncstorm.hability.ui.scheduler
 
+import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import com.syncstorm.hability.databinding.FragmentSchedulerBinding
 import android.widget.Button
 import android.widget.Toast
 import com.syncstorm.hability.R
+import com.syncstorm.hability.addTask
 
 class SchedulerFragment : Fragment(), View.OnClickListener {
 
@@ -55,17 +57,17 @@ class SchedulerFragment : Fragment(), View.OnClickListener {
         }
     }
 
-    override fun onClick(v: View?) {
-        when (v?.id) {
-            R.id.addTask -> {
-
-             val toastTest = Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_LONG).show()
-
-            }
-
-            else -> {
-            }
-        }
+//    override fun onClick(v: View?) {
+//        when (v?.id) {
+//            R.id.addTask -> {
+//
+//             val toastTest = Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_LONG).show()
+//
+//            }
+//
+//            else -> {
+//            }
+//        }
 
 
         fun onDestroyView() {

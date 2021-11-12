@@ -55,5 +55,15 @@ class addTask : Fragment() {
                     putString(ARG_PARAM2, param2)
                 }
             }
+
+        fun setOnClickListener(any: Any) {
+
+        }
+
+
     }
+
+
+
+
 }
