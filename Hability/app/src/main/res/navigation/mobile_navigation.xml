@@ -37,4 +37,9 @@
         android:name="com.syncstorm.hability.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/settings_fragment" />
+    <fragment
+        android:id="@+id/addTask2"
+        android:name="com.syncstorm.hability.addTask"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" />
 </navigation>

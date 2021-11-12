@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.syncstorm.hability.databinding.FragmentSchedulerBinding
 import android.widget.Button
+import android.widget.Toast
 import com.syncstorm.hability.R
 
 class SchedulerFragment : Fragment(), View.OnClickListener {
@@ -57,6 +58,8 @@ class SchedulerFragment : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
         when (v?.id) {
             R.id.addTask -> {
+
+             val toastTest = Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_LONG).show()
 
             }
 
