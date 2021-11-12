@@ -12,7 +12,7 @@ import com.syncstorm.hability.databinding.FragmentSchedulerBinding
 import android.widget.Button
 import com.syncstorm.hability.R
 
-class SchedulerFragment : Fragment() {
+class SchedulerFragment : Fragment(), View.OnClickListener {
 
     private lateinit var schedulerViewModel: SchedulerViewModel
     private var _binding: FragmentSchedulerBinding? = null
@@ -21,11 +21,15 @@ class SchedulerFragment : Fragment() {
     // onDestroyView.
     private val binding get() = _binding!!
 
-    override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        View view = inflater.inflate(R.layout.fragment_scheduler, container, false);
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
 
-        Button() addTask = (Button)view.findViewById(R.id.addTask);
-
+        val view: View = inflater!!.inflate(R.layout.fragment_scheduler, container, false)
+        val btn: Button = view.findViewById(R.id.addTask)
+        btn.setOnClickListener(this)
 
 
         schedulerViewModel =
@@ -34,21 +38,37 @@ class SchedulerFragment : Fragment() {
         _binding = FragmentSchedulerBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
+        val textView: TextView = binding.textView2
         schedulerViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
+
         })
 
 
-     return view
+        return view
     }
 
+    companion object {
+        fun newInstance(): SchedulerFragment {
+            return SchedulerFragment()
+        }
+    }
+
+    override fun onClick(v: View?) {
+        when (v?.id) {
+            R.id.addTask -> {
+
+            }
+
+            else -> {
+            }
+        }
 
 
-
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        fun onDestroyView() {
+            super.onDestroyView()
+            _binding = null
+        }
     }
 
 }
