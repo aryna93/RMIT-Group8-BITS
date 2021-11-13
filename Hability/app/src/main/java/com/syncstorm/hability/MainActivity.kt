@@ -11,7 +11,11 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.syncstorm.hability.databinding.ActivityMainBinding
+import com.syncstorm.hability.ui.scheduler.*
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,24 +29,32 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setSupportActionBar(binding.appBarMain.toolbar)
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
 
         binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Create a new event", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+       //     Snackbar.make(view, "Create a new event", Snackbar.LENGTH_LONG)
+       //         .setAction("Action", null).show()
+        navController.navigate(R.id.addTask2)
         }
+
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+       // val navController = findNavController(R.id.nav_host_fragment_content_main)
+
+
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_calendar, R.id.nav_scheduler
+                R.id.nav_home, R.id.nav_calendar, R.id.nav_scheduler,
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.

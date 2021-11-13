@@ -1,61 +1,41 @@
 package com.syncstorm.hability.ui.scheduler
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import com.syncstorm.hability.databinding.FragmentSchedulerBinding
 import android.widget.Button
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.syncstorm.hability.databinding.FragmentSchedulerBinding
+import androidx.navigation.fragment.findNavController
 import com.syncstorm.hability.R
-import com.syncstorm.hability.addTask
-
-class SchedulerFragment : Fragment(), View.OnClickListener {
-
-    private lateinit var schedulerViewModel: SchedulerViewModel
-    private var _binding: FragmentSchedulerBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-
-        val view: View = inflater!!.inflate(R.layout.fragment_scheduler, container, false)
-        val btn: Button = view.findViewById(R.id.addTask)
-        btn.setOnClickListener(this)
+import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.fragment_scheduler.*
 
 
-        schedulerViewModel =
-            ViewModelProvider(this).get(SchedulerViewModel::class.java)
+class SchedulerFragment : Fragment(com.syncstorm.hability.R.layout.fragment_scheduler) {
 
-        _binding = FragmentSchedulerBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textView2
-        schedulerViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-
-        })
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //Goes from scheduler fragment to add task fragment
 
 
-        return view
-    }
-
-    companion object {
-        fun newInstance(): SchedulerFragment {
-            return SchedulerFragment()
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //    override fun onClick(v: View?) {
 //        when (v?.id) {
@@ -70,10 +50,6 @@ class SchedulerFragment : Fragment(), View.OnClickListener {
 //        }
 
 
-        fun onDestroyView() {
-            super.onDestroyView()
-            _binding = null
-        }
-    }
 
-}
+
+

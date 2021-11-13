@@ -21,11 +21,7 @@
         android:id="@+id/nav_scheduler"
         android:name="com.syncstorm.hability.ui.scheduler.SchedulerFragment"
         android:label="@string/menu_scheduler"
-        tools:layout="@layout/fragment_scheduler" >
-        <action
-            android:id="@+id/action_nav_scheduler_to_addTask2"
-            app:destination="@id/addTask2" />
-    </fragment>
+        tools:layout="@layout/fragment_scheduler" />
     <fragment
         android:id="@+id/nav_goals"
         android:name="com.syncstorm.hability.ui.goals.GoalsFragment"
@@ -43,7 +39,7 @@
         tools:layout="@layout/settings_fragment" />
     <fragment
         android:id="@+id/addTask2"
-        android:name="com.syncstorm.hability.addTask"
+        android:name="com.syncstorm.hability.ui.scheduler.AddTask"
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" />
 </navigation>
