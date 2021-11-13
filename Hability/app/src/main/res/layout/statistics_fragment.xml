@@ -20,6 +20,8 @@
         android:id="@+id/view_pager2_stats"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/tab_layout_stats" />
+        android:layout_below="@id/tab_layout_stats" >
+
+    </androidx.viewpager2.widget.ViewPager2>
 
 </RelativeLayout>

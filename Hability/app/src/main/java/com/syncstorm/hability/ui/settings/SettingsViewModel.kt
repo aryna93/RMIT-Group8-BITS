@@ -9,4 +9,5 @@ class SettingsViewModel : ViewModel() {
         value = "Settings"
     }
     val text: LiveData<String> = _text
+
 }
