@@ -59,7 +59,7 @@ class DatabaseHelper(
 
     fun readDataTasks(): Cursor? {
         val query =
-            "SELECT title, description, start_date, end_date, time, category FROM $TABLE_NAME_TASKS"
+            "SELECT * FROM $TABLE_NAME_TASKS"
         val db = this.readableDatabase
         var cursor: Cursor? = null
         if (db != null) {
@@ -68,7 +68,7 @@ class DatabaseHelper(
         return cursor
     }
 
-    fun updateDataTasks(
+    fun updateDataGoals(
         row_id: String,
         title: String,
         description: String,
@@ -77,7 +77,7 @@ class DatabaseHelper(
         time: String,
         category: String
     ) {
-        val db = this.writableDatabase
+        val db = writableDatabase
         val cv = ContentValues()
 
         cv.put(COLUMN_TITLE, title)
@@ -92,7 +92,7 @@ class DatabaseHelper(
     }
 
     fun deleteDataTasks(row_id: String) {
-        val db = this.writableDatabase
+        val db = writableDatabase
         db.delete(TABLE_NAME_TASKS, "$COLUMN_ID = $row_id", null)
     }
 

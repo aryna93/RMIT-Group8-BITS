@@ -26,7 +26,14 @@
         android:id="@+id/nav_goals"
         android:name="com.syncstorm.hability.ui.goals.GoalsFragment"
         android:label="@string/menu_goals"
-        tools:layout="@layout/goals_fragment" />
+        tools:layout="@layout/goals_fragment">
+        <action
+            android:id="@+id/action_nav_goals_to_addGoals"
+            app:destination="@id/addGoals"/>
+        <action
+            android:id="@+id/action_nav_goals_to_updateGoal"
+            app:destination="@id/updateGoal" />
+    </fragment>
     <fragment
         android:id="@+id/nav_statistics"
         android:name="com.syncstorm.hability.ui.statistics.StatisticsFragment"
@@ -37,4 +44,14 @@
         android:name="com.syncstorm.hability.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/settings_fragment" />
+    <fragment
+        android:id="@+id/addGoals"
+        android:name="com.syncstorm.hability.ui.goals.AddGoals"
+        android:label="Create Goal"
+        tools:layout="@layout/fragment_add_goals" />
+    <fragment
+        android:id="@+id/updateGoal"
+        android:name="com.syncstorm.hability.ui.goals.UpdateGoal"
+        android:label="Update Goal"
+        tools:layout="@layout/fragment_update_goal" />
 </navigation>

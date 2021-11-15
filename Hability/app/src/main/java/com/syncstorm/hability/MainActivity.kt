@@ -28,11 +28,6 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Create a new event", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
-        }
-
 
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
