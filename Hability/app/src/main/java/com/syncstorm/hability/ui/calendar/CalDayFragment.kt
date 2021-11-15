@@ -5,7 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
+import com.syncstorm.hability.database.DatabaseHandler
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -28,14 +31,28 @@ class CalDayFragment : Fragment() {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    }
+    private var layoutManager: RecyclerView.LayoutManager? = null
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
+                              savedInstanceState: Bundle?): View? {
+        super.onCreate(savedInstanceState)
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cal_day, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerview = view.findViewById<RecyclerView>(R.id.recyclerview)
+        val context = requireContext()
+        val db = DatabaseHandler(context)
+        val data = db.readTask()
+
+        val adapter = CalDayAdapter(data)
+        recyclerview.adapter = adapter
+        recyclerview.layoutManager = LinearLayoutManager(context)
     }
 
     companion object {

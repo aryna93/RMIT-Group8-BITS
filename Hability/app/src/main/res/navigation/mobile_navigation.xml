@@ -37,4 +37,9 @@
         android:name="com.syncstorm.hability.ui.settings.SettingsFragment"
         android:label="@string/menu_settings"
         tools:layout="@layout/settings_fragment" />
+    <fragment
+        android:id="@+id/nav_creationform"
+        android:name="com.syncstorm.hability.ui.creationform.CreationForm"
+        android:label="Create Task"
+        tools:layout="@layout/creation_form_fragment" />
 </navigation>

@@ -11,6 +11,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.syncstorm.hability.database.DatabaseHandler
 import com.syncstorm.hability.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,18 +27,20 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
-            Snackbar.make(view, "Create a new event", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+
+        binding.appBarMain.fab.setOnClickListener {
+            navController.navigate(R.id.nav_creationform)
         }
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
+
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_calendar, R.id.nav_scheduler
+                R.id.nav_home, R.id.nav_calendar, R.id.nav_scheduler, R.id.nav_goals,
+                R.id.nav_statistics
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
