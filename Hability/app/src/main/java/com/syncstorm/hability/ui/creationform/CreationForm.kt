@@ -13,6 +13,9 @@ import androidx.navigation.fragment.findNavController
 import com.syncstorm.hability.database.DatabaseHandler
 import com.syncstorm.hability.database.DateTimeModel
 import com.syncstorm.hability.database.TaskModelClass
+import java.text.Format
+import java.text.SimpleDateFormat
+import java.util.*
 
 class CreationForm : Fragment() {
 
@@ -58,6 +61,14 @@ class CreationForm : Fragment() {
             categorySelected = spinner.selectedItem.toString()
         }
 
+        fun getTime(hr: Int,min: Int) : String? {
+            val cal: Calendar = Calendar.getInstance()
+            cal.set(Calendar.HOUR_OF_DAY,hr)
+            cal.set(Calendar.MINUTE,min)
+            val formatter: Format = SimpleDateFormat("h:mm a")
+            return formatter.format(cal.getTime())
+        }
+
         btnCreationForm.setOnClickListener{
 
             getSpinnerValue(view)
@@ -66,34 +77,31 @@ class CreationForm : Fragment() {
                     startDate.dayOfMonth,
                     startDate.month,
                     startDate.year,
-                    startTime.hour,
-                    startTime.minute
+                    getTime(startTime.hour,startTime.minute)
                 )
                 val endDateTime = DateTimeModel(
                     endDate.dayOfMonth,
                     endDate.month,
                     endDate.year,
-                    endTime.hour,
-                    endTime.minute
+                    getTime(endTime.hour,endTime.minute)
                 )
 
                 var stringStartDate : String =
                     startDateTime.day.toString() + "/" +
-                            startDateTime.month.toString() + "/" +
+                            (startDateTime.month?.plus(1)).toString() + "/" +
                             startDateTime.year.toString()
 
                 var stringStartTime : String =
-                    startDateTime.hour.toString() + ":" +
-                            startDateTime.minute.toString()
+                    startDateTime.time.toString()
 
                 var stringEndDate : String =
                     endDateTime.day.toString() + "/" +
-                            endDateTime.month.toString() + "/" +
+                            (endDateTime.month?.plus(1)).toString() + "/" +
                             endDateTime.year.toString()
 
                 var stringEndTime : String =
-                    startDateTime.hour.toString() + ":" +
-                            startDateTime.minute.toString()
+                    endDateTime.time.toString()
+
                 val task = TaskModelClass(0,
                     editTextTaskTitle.text.toString(),
                     editTextTaskDescription.text.toString(),
