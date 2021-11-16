@@ -9,6 +9,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
 import com.syncstorm.hability.database.DatabaseHandler
+import com.syncstorm.hability.database.TaskModelClass
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,7 +53,28 @@ class CalDayFragment : Fragment() {
         val db = DatabaseHandler(context)
         val data = db.readTask()
 
-        val adapter = CalDayAdapter(data)
+        val today = LocalDateTime.now()
+        val todayDate = today.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+
+        val allTasks: List<TaskModelClass> = data
+        val todayTasks: MutableList<TaskModelClass> = ArrayList()
+        for (i in 0 until allTasks.size) {
+            if (allTasks[i].taskStartDate == todayDate) {
+                val todayTask = TaskModelClass()
+                todayTask.taskID = allTasks[i].taskID
+                todayTask.taskName = allTasks[i].taskName
+                todayTask.taskDescription = allTasks[i].taskDescription
+                todayTask.taskStatus = allTasks[i].taskStatus
+                todayTask.taskCategory = allTasks[i].taskCategory
+                todayTask.taskStartDate = allTasks[i].taskStartDate
+                todayTask.taskStartTime = allTasks[i].taskStartTime
+                todayTask.taskEndDate  = allTasks[i].taskEndDate
+                todayTask.taskEndTime = allTasks[i].taskEndTime
+                todayTasks.add(todayTask)
+            }
+        }
+
+        val adapter = CalDayAdapter(todayTasks)
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(context)
     }

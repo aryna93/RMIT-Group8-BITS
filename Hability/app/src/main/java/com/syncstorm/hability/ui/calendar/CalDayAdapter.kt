@@ -28,7 +28,6 @@ class CalDayAdapter (private val mList: List<TaskModelClass>) : RecyclerView.Ada
 
         val TaskModelClass = mList[position]
 
-        //if (TaskModelClass.taskStartDate == todayDate) {
             when (TaskModelClass.taskCategory) {
                 "General" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_misc)
                 "Studying" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_studying)
@@ -43,12 +42,6 @@ class CalDayAdapter (private val mList: List<TaskModelClass>) : RecyclerView.Ada
             holder.textViewTaskDescription.text = TaskModelClass.taskDescription
             holder.textViewStartLabel.text = TaskModelClass.taskStartTime
             holder.textViewEndLabel.text = TaskModelClass.taskEndTime
-        //} else {
-            //holder.imageViewCategory.setImageResource(R.drawable.taskcategory_misc)
-            //holder.textViewTaskTitle.text = "No Events to Show"
-           //holder.textViewTaskDescription.text = "Nothing scheduled for today"
-           //holder.textViewStartLabel.text = "Use the button at the bottom to add a task!"
-            //holder.textViewEndLabel.text = ""
         }
 
     // return the number of the items in the list

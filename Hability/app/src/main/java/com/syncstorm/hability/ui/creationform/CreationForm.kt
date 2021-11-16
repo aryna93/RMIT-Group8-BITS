@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.*
 import com.syncstorm.hability.R
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.syncstorm.hability.database.DatabaseHandler
 import com.syncstorm.hability.database.DateTimeModel
 import com.syncstorm.hability.database.TaskModelClass
@@ -104,9 +105,8 @@ class CreationForm : Fragment() {
                     stringEndTime
                 )
                 db.insertTask(task)
-                editTextTaskTitle.text.clear()
-                editTextTaskDescription.text.clear()
-
+                val navController = findNavController()
+                navController.navigate(R.id.nav_calendar)
 
             } else {
                 Toast.makeText(context, "Fields cannot be empty!", Toast.LENGTH_SHORT).show()
