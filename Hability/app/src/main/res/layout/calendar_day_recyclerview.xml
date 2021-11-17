@@ -7,7 +7,7 @@
     android:layout_marginTop="12dp"
     android:layout_marginLeft="16dp"
     android:layout_marginRight="16dp"
-    card_view:cardBackgroundColor="#FFFF"
+    card_view:cardBackgroundColor="#cbcaef"
     card_view:cardCornerRadius="10dp"
     card_view:contentPadding="0dp"
     android:foreground="?selectableItemBackground"
@@ -39,6 +39,10 @@
                     android:id="@+id/textViewTaskTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:maxLines="2"
+                    android:maxLength="18"
+                    android:textColor="#000"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     android:text="New Task" />
 
@@ -46,6 +50,10 @@
                     android:id="@+id/textViewTaskDescription"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
+                    android:ellipsize="marquee"
+                    android:textColor="#000"
+                    android:maxLines="2"
+                    android:maxLength="15"
                     android:text="Task Description" />
 
                 <View
@@ -64,13 +72,42 @@
                     android:id="@+id/textViewStartLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#000"
                     android:text="START:" />
 
                 <TextView
                     android:id="@+id/textViewEndLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="#000"
                     android:text="END:" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewTaskStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_gravity="right"
+                    android:textSize="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColorHighlight="@color/purple_500"
+                    android:text="Status" />
+
+                <Button
+                    android:id="@+id/buttonDeleteTask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:text="DELETE" />
 
             </LinearLayout>
 

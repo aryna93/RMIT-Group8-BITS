@@ -7,8 +7,8 @@ import android.widget.Toast
 
 class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, "HABILITYDB", null,
     1) {
-    val dbModel = DatabaseModel()
-    val tableName = dbModel.TABLENAME
+    private val dbModel = DatabaseModel()
+    private val tableName = dbModel.TABLENAME
     // val dbName = dbModel.DATABASENAME
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -72,9 +72,9 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, "HABILIT
         return list
         }
 
-    fun deleteTask() {
+    fun deleteTask(task: TaskModelClass) {
         val db = this.writableDatabase
-        val query = ""
+        db.delete(dbModel.TABLENAME, task.taskID.toString(), null)
     }
 
 }

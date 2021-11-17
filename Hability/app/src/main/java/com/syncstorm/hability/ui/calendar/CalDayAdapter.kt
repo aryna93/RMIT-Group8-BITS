@@ -2,15 +2,17 @@ package com.syncstorm.hability.ui.calendar
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
+import com.syncstorm.hability.database.DatabaseHandler
 import com.syncstorm.hability.database.TaskModelClass
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 
-class CalDayAdapter (private val mList: List<TaskModelClass>) : RecyclerView.Adapter<CalDayAdapter.ViewHolder>() {
+class CalDayAdapter (private val mList: MutableList<TaskModelClass>) : RecyclerView.Adapter<CalDayAdapter.ViewHolder>() {
     // create new views
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         // inflates the card_view_design view
@@ -38,15 +40,40 @@ class CalDayAdapter (private val mList: List<TaskModelClass>) : RecyclerView.Ada
                 "Business" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_business)
             }
 
+            holder.textViewTaskStatus.text = TaskModelClass.taskStatus
             holder.textViewTaskTitle.text = TaskModelClass.taskName
             holder.textViewTaskDescription.text = TaskModelClass.taskDescription
             holder.textViewStartLabel.text = TaskModelClass.taskStartTime
             holder.textViewEndLabel.text = TaskModelClass.taskEndTime
+
+            holder.textViewButtonDeleteTask.setOnClickListener {
+                if(onClickListener != null) {
+                    onClickListener!!.onClick(position)
+                    removeItem(position)
+                }
+            }
+
         }
 
     // return the number of the items in the list
     override fun getItemCount(): Int {
         return mList.size
+    }
+
+    private var onClickListener : OnClickListener? = null
+
+    fun setOnClickListener(onClickListener: OnClickListener){
+        this.onClickListener = onClickListener
+
+    }
+
+    interface OnClickListener {
+        fun onClick(position: Int){
+        }
+    }
+    private fun removeItem(position: Int){
+        mList.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     // Holds the views for adding it to image and text
@@ -56,5 +83,7 @@ class CalDayAdapter (private val mList: List<TaskModelClass>) : RecyclerView.Ada
         val textViewTaskDescription: TextView = itemView.findViewById(R.id.textViewTaskDescription)
         val textViewStartLabel: TextView = itemView.findViewById(R.id.textViewStartLabel)
         val textViewEndLabel: TextView = itemView.findViewById(R.id.textViewEndLabel)
+        val textViewTaskStatus: TextView = itemView.findViewById(R.id.textViewTaskStatus)
+        val textViewButtonDeleteTask: Button = itemView.findViewById(R.id.buttonDeleteTask)
     }
 }
