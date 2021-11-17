@@ -73,7 +73,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, "HABILIT
         }
 
     fun updateTask(task: TaskModelClass) {
-        
+
     }
 
     fun deleteTask(position: Int?) {

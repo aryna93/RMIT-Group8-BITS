@@ -21,10 +21,10 @@
         <entry key="app/src/main/res/drawable/side_nav_bar.xml" value="0.3390625" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.3229166666666667" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.3229166666666667" />
-        <entry key="app/src/main/res/layout/calendar_day_recyclerview.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/calendar_day_recyclerview.xml" value="0.5" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.5416666666666666" />
         <entry key="app/src/main/res/layout/creation_form_fragment.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_cal_day.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_cal_day.xml" value="0.5" />
         <entry key="app/src/main/res/layout/fragment_cal_month.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_cal_week.xml" value="0.2672239108409321" />
         <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.1" />

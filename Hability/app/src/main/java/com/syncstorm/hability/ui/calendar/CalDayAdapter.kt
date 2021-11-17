@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
@@ -46,6 +47,10 @@ class CalDayAdapter (private val mList: MutableList<TaskModelClass>) : RecyclerV
         holder.textViewStartLabel.text = "START: " + TaskModelClass.taskStartTime
         holder.textViewEndLabel.text = "END: " + TaskModelClass.taskEndTime
 
+        holder.cardViewCalDayRecycler.setOnClickListener {
+
+        }
+
         val context = holder.textViewButtonDeleteTask.getContext()
         val db = DatabaseHandler(context)
 
@@ -80,6 +85,7 @@ class CalDayAdapter (private val mList: MutableList<TaskModelClass>) : RecyclerV
 
     // Holds the views for adding it to image and text
     class ViewHolder(ItemView: View) : RecyclerView.ViewHolder(ItemView) {
+        val cardViewCalDayRecycler: CardView = itemView.findViewById(R.id.cardViewCalDayRecycler)
         val imageViewCategory: ImageView = itemView.findViewById(R.id.imageViewCategory)
         val textViewTaskTitle: TextView = itemView.findViewById(R.id.textViewTaskTitle)
         val textViewTaskDescription: TextView = itemView.findViewById(R.id.textViewTaskDescription)

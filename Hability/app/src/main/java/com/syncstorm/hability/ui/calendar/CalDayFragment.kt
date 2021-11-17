@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
@@ -49,12 +50,14 @@ class CalDayFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         val recyclerview = view.findViewById<RecyclerView>(R.id.recyclerview)
+        val textViewTodayDate: TextView = view.findViewById(R.id.textViewTodayDate)
         val context = requireContext()
         val db = DatabaseHandler(context)
         val data = db.readTask()
 
         val today = LocalDateTime.now()
         val todayDate = today.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+        textViewTodayDate.text = "Today: " + todayDate
 
         val allTasks: List<TaskModelClass> = data
         val todayTasks: MutableList<TaskModelClass> = ArrayList()

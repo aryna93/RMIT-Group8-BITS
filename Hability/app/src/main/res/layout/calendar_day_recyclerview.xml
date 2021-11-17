@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardViewCalDayRecycler"
     android:layout_width="match_parent"
     android:layout_height="96dp"
     android:layout_marginTop="12dp"
@@ -37,9 +38,9 @@
                     android:id="@+id/textViewTaskTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:ellipsize="marquee"
+                    android:ellipsize="end"
                     android:maxLines="2"
-                    android:maxLength="30"
+                    android:maxLength="22"
                     android:textColor="#000"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     android:text="New Task"
@@ -49,10 +50,10 @@
                     android:id="@+id/textViewTaskDescription"
                     android:layout_height="wrap_content"
                     android:layout_width="wrap_content"
-                    android:ellipsize="marquee"
+                    android:ellipsize="end"
                     android:textColor="#000"
                     android:maxLines="2"
-                    android:maxLength="30"
+                    android:maxLength="22"
                     android:textSize="13dp"
                     android:text="Task Description" />
 
