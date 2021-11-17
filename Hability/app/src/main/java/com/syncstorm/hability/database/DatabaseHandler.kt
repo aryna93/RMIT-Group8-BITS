@@ -72,9 +72,13 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, "HABILIT
         return list
         }
 
-    fun deleteTask(task: TaskModelClass) {
+    fun updateTask(task: TaskModelClass) {
+        
+    }
+
+    fun deleteTask(position: Int?) {
         val db = this.writableDatabase
-        db.delete(dbModel.TABLENAME, task.taskID.toString(), null)
+        db.delete(dbModel.TABLENAME, "id="+position.toString(), null)
     }
 
 }

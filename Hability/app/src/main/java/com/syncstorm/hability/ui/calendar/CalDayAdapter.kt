@@ -1,10 +1,12 @@
 package com.syncstorm.hability.ui.calendar
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
 import com.syncstorm.hability.database.DatabaseHandler
@@ -25,12 +27,10 @@ class CalDayAdapter (private val mList: MutableList<TaskModelClass>) : RecyclerV
 
     // binds the list items to a view
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //val today = LocalDateTime.now()
-        //val todayDate = today.format(DateTimeFormatter.ofPattern("dd-MM-yyyy"))
 
         val TaskModelClass = mList[position]
 
-            when (TaskModelClass.taskCategory) {
+        when (TaskModelClass.taskCategory) {
                 "General" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_misc)
                 "Studying" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_studying)
                 "Reading" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_reading)
@@ -38,20 +38,22 @@ class CalDayAdapter (private val mList: MutableList<TaskModelClass>) : RecyclerV
                 "Gym" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_gym)
                 "Cooking" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_cooking)
                 "Business" -> holder.imageViewCategory.setImageResource(R.drawable.taskcategory_business)
-            }
+        }
 
-            holder.textViewTaskStatus.text = TaskModelClass.taskStatus
-            holder.textViewTaskTitle.text = TaskModelClass.taskName
-            holder.textViewTaskDescription.text = TaskModelClass.taskDescription
-            holder.textViewStartLabel.text = TaskModelClass.taskStartTime
-            holder.textViewEndLabel.text = TaskModelClass.taskEndTime
+        holder.textViewTaskStatus.text = TaskModelClass.taskStatus
+        holder.textViewTaskTitle.text = TaskModelClass.taskName
+        holder.textViewTaskDescription.text = TaskModelClass.taskDescription
+        holder.textViewStartLabel.text = "START: " + TaskModelClass.taskStartTime
+        holder.textViewEndLabel.text = "END: " + TaskModelClass.taskEndTime
 
-            holder.textViewButtonDeleteTask.setOnClickListener {
-                if(onClickListener != null) {
-                    onClickListener!!.onClick(position)
-                    removeItem(position)
-                }
-            }
+        val context = holder.textViewButtonDeleteTask.getContext()
+        val db = DatabaseHandler(context)
+
+        holder.textViewButtonDeleteTask.setOnClickListener {
+            mList.get(position).taskID?.let { it1 -> db.deleteTask(it1.toInt()) }
+            removeItem(position)
+
+        }
 
         }
 
