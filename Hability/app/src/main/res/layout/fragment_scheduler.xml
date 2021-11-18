@@ -4,19 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.scheduler.SchedulerFragment">
+    tools:context=".ui.scheduler.AddTask">
+
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip11"
+        android:layout_width="101dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="9dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/chip5"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:text="Work" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip15"
+        android:layout_width="101dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="9dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/chip11"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:text="Hobbies" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip16"
+        android:layout_width="101dp"
+        android:layout_height="43dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/chip13"
+        app:layout_constraintTop_toBottomOf="@+id/chip15"
+        tools:text="Study" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip5"
+        android:layout_width="101dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="9dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        tools:text="Motivation" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip10"
+        android:layout_width="101dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="32dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chip5"
+        tools:text="Fitness" />
+
+    <com.google.android.material.chip.Chip
+        android:id="@+id/chip13"
+        android:layout_width="101dp"
+        android:layout_height="43dp"
+        android:textAlignment="center"
+        app:layout_constraintStart_toEndOf="@+id/chip10"
+        app:layout_constraintTop_toBottomOf="@+id/chip11"
+        tools:text="Home" />
+
+    <ImageView
+        android:id="@+id/imageViewUserPic2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/user_pic" />
 
     <TextView
-        android:id="@+id/text_slideshow"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
+        android:id="@+id/textView2"
+        android:layout_width="130dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginEnd="263dp"
+        android:text="Today's Goals"
+        android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageViewUserPic2" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

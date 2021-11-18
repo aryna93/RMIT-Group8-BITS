@@ -4,41 +4,52 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.Button
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.syncstorm.hability.databinding.FragmentSchedulerBinding
+import androidx.navigation.fragment.findNavController
+import com.syncstorm.hability.R
+import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.fragment_scheduler.*
 
-class SchedulerFragment : Fragment() {
 
-    private lateinit var schedulerViewModel: SchedulerViewModel
-    private var _binding: FragmentSchedulerBinding? = null
+class SchedulerFragment : Fragment(com.syncstorm.hability.R.layout.fragment_scheduler) {
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        //Goes from scheduler fragment to add task fragment
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        schedulerViewModel =
-            ViewModelProvider(this).get(SchedulerViewModel::class.java)
 
-        _binding = FragmentSchedulerBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textSlideshow
-        schedulerViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
-    }
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    override fun onClick(v: View?) {
+//        when (v?.id) {
+//            R.id.addTask -> {
+//
+//             val toastTest = Toast.makeText(requireActivity(), "Hello", Toast.LENGTH_LONG).show()
+//
+//            }
+//
+//            else -> {
+//            }
+//        }
+
+
+
+
+
