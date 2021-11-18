@@ -5,7 +5,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
+import com.syncstorm.hability.database.DatabaseHandler
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +41,24 @@ class CalWeekFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cal_week, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerview = view.findViewById<RecyclerView>(R.id.recyclerviewWeek)
+        val context = requireContext()
+        val db = DatabaseHandler(context)
+        val data = db.readTask()
+        val today = LocalDateTime.now()
+        val todayDate = today.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+        val startEndDate: DateTimeHelper.StartEndDate = DateTimeHelper.getCurrentWeekStartEndDate()
+        val startDate = startEndDate.startDate
+        val endDate = startEndDate.endDate
+        val textViewTodayDate: TextView = view.findViewById(R.id.textViewWeekStartEndDate)
+        textViewTodayDate.text = "This week: " + startDate + "  |  " + endDate
+
+
     }
 
     companion object {

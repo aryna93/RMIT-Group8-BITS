@@ -9,11 +9,18 @@
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/Hability/Hability/app/src/main/res/layout/fragment_calendar.xml" value="0.3605072463768116" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/activity_main.xml" value="0.3625" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/app_bar_main.xml" value="0.3625" />
+        <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/calendar_day_recyclerview.xml" value="0.31301939058171746" />
+        <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/calendar_month_recyclerview.xml" value="0.1" />
+        <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/calendar_week_recyclerview.xml" value="0.1" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/creation_form_fragment.xml" value="0.3625" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/fragment_cal_day.xml" value="0.3625" />
+        <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/fragment_cal_month.xml" value="0.3625" />
+        <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/fragment_cal_week.xml" value="0.3625" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/fragment_calendar.xml" value="0.3625" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/fragment_home.xml" value="0.3625" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/fragment_scheduler.xml" value="0.3625" />
+        <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/nav_header_main.xml" value="0.3625" />
+        <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/layout/settings_fragment.xml" value="0.3625" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/menu/activity_main_drawer.xml" value="0.3625" />
         <entry key="..\:/Users/Richard Jouas/Documents/GitHub/RMIT-Group8-BITS/Hability/app/src/main/res/menu/main.xml" value="0.3625" />
         <entry key="app/src/main/res/drawable/ic_menu_camera.xml" value="0.40989583333333335" />

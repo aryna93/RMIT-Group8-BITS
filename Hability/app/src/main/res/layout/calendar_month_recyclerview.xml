@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardViewCalMonthRecycler"
+    android:layout_width="match_parent"
+    android:layout_height="96dp"
+    android:layout_marginTop="12dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    card_view:cardBackgroundColor="#cbcaef"
+    card_view:cardCornerRadius="10dp"
+    card_view:contentPadding="0dp"
+    android:foreground="?selectableItemBackground"
+    android:clickable="true">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <ImageView
+                android:id="@+id/imageViewMonthCategory"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewMonthTaskTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:maxLines="2"
+                    android:maxLength="22"
+                    android:textColor="#000"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                    android:text="New Task"
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/textViewMonthTaskDescription"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:ellipsize="end"
+                    android:textColor="#000"
+                    android:maxLines="2"
+                    android:maxLength="22"
+                    android:textSize="13dp"
+                    android:text="Task Description" />
+
+                <View
+                    android:id="@+id/divider"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="?android:attr/listDivider" />
+
+                <TextView
+                    android:id="@+id/textViewMonthStartLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="START:" />
+
+                <TextView
+                    android:id="@+id/textViewMonthEndLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:text="END:" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textViewMonthTaskStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#000"
+                    android:layout_gravity="right"
+                    android:textSize="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textColorHighlight="@color/purple_500"
+                    android:text="Status" />
+
+                <Button
+                    android:id="@+id/buttonMonthDeleteTask"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="right"
+                    android:scaleX="0.7"
+                    android:scaleY="0.7"
+                    android:text="DELETE" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.cardview.widget.CardView>
