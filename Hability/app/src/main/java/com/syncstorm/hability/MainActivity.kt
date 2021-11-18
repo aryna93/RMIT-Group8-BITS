@@ -17,6 +17,8 @@ import com.syncstorm.hability.databinding.ActivityMainBinding
 import com.syncstorm.hability.ui.scheduler.*
 import kotlinx.android.synthetic.main.app_bar_main.*
 
+
+
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -31,11 +33,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(binding.appBarMain.toolbar)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
-        binding.appBarMain.fab.setOnClickListener { view ->
-       //     Snackbar.make(view, "Create a new event", Snackbar.LENGTH_LONG)
-       //         .setAction("Action", null).show()
-        navController.navigate(R.id.addTask2)
-        }
+
+
 
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
@@ -47,7 +46,13 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.nav_home, R.id.nav_calendar, R.id.nav_scheduler,
+
+                R.id.nav_home,
+                R.id.nav_calendar,
+                R.id.nav_scheduler,
+                R.id.nav_goals,
+                R.id.nav_statistics,
+                R.id.nav_settings
             ), drawerLayout
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -67,4 +72,5 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
+
 }
