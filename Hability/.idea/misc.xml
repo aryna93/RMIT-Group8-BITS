@@ -19,13 +19,15 @@
         <entry key="app/src/main/res/layout/add_goals_fragment.xml" value="0.26481481481481484" />
         <entry key="app/src/main/res/layout/app_bar_main.xml" value="0.12643678160919541" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.5416666666666666" />
+        <entry key="app/src/main/res/layout/fragment_achievement_goal.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_add_goal2.xml" value="0.26481481481481484" />
-        <entry key="app/src/main/res/layout/fragment_add_goals.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_add_goals.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_add_goals2.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/layout/fragment_cal_day.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_cal_month.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_cal_week.xml" value="0.2672239108409321" />
         <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_date_picker_goal.xml" value="0.2490740740740741" />
         <entry key="app/src/main/res/layout/fragment_day.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3229166666666667" />
         <entry key="app/src/main/res/layout/fragment_month.xml" value="0.2740628166160081" />
@@ -35,16 +37,17 @@
         <entry key="app/src/main/res/layout/fragment_stats_month.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_stats_week.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_up_goals.xml" value="0.262037037037037" />
-        <entry key="app/src/main/res/layout/fragment_update_goal.xml" value="0.262037037037037" />
+        <entry key="app/src/main/res/layout/fragment_update_goal.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_update_goal2.xml" value="0.2175925925925926" />
         <entry key="app/src/main/res/layout/fragment_view_goals.xml" value="0.1782052591320715" />
         <entry key="app/src/main/res/layout/fragment_week.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/goals_fragment.xml" value="0.335" />
         <entry key="app/src/main/res/layout/nav_header_main.xml" value="0.5416666666666666" />
-        <entry key="app/src/main/res/layout/recycler_view_row_goals.xml" value="0.41312293838774383" />
+        <entry key="app/src/main/res/layout/recycler_view_row_goals.xml" value="0.5063598372515399" />
         <entry key="app/src/main/res/layout/settings_fragment.xml" value="0.335" />
         <entry key="app/src/main/res/layout/statistics_fragment.xml" value="0.22137791286727457" />
         <entry key="app/src/main/res/menu/activity_main_drawer.xml" value="0.3229166666666667" />
+        <entry key="app/src/main/res/menu/goal.xml" value="0.5635416666666667" />
         <entry key="app/src/main/res/menu/main.xml" value="0.3229166666666667" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.5796875" />
       </map>

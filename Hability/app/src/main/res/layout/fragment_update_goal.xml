@@ -8,8 +8,9 @@
     android:id="@+id/updateGoalsLayout">
 
 
+
     <EditText
-        android:id="@+id/editTextUpdateGoalTitle"
+        android:id="@+id/editTextTitleGoalUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -24,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextUpdateGoalDescription"
+        android:id="@+id/editTextDescriptionGoalUpdate"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -37,72 +38,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateGoalTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextTitleGoalUpdate" />
 
     <EditText
-        android:id="@+id/editTextUpdateStartDate"
+        android:id="@+id/editTextCategoryGoalUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Date"
-        android:inputType="date"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateGoalDescription" />
-
-    <EditText
-        android:id="@+id/editTextUpdateEndDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Date"
-        android:inputType="date"
+        android:hint="Category"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateStartDate" />
-
-    <EditText
-        android:id="@+id/editTextUpdateGoalTime"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:ems="10"
-        android:hint="Time"
-        android:inputType="time"
-        android:minHeight="48dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateEndDate" />
-
-    <EditText
-        android:id="@+id/editTextUpdateGoalTag"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="128dp"
-        android:ems="10"
-        android:hint="Tag"
-        android:minHeight="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextUpdateGoalTime"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewStartDateGoalUpdate" />
 
     <Button
         android:id="@+id/buttonUpdateGoal"
@@ -113,5 +64,107 @@
         android:text="Update"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDeleteGoal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="Delete"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonUpdateGoal" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chipGroupDifficultyGoalUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.456"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewDifficulty"
+        app:singleSelection="true">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDifficultyTrivialGoalUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Trivial"
+            android:textSize="16dp"
+            app:checkedIcon="@drawable/ic_check"
+            app:chipBackgroundColor="@color/chip_background"
+            app:textStartPadding="10dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDifficultyEasyGoalUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Easy"
+            android:textSize="16dp"
+            app:checkedIcon="@drawable/ic_check"
+            app:chipBackgroundColor="@color/chip_background"
+            app:textStartPadding="10dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDifficultyMediumGoalUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Medium"
+            android:textSize="16dp"
+            app:checkedIcon="@drawable/ic_check"
+            app:chipBackgroundColor="@color/chip_background"
+            app:textStartPadding="10dp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chipDifficultyHardGoalUpdate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Hard"
+            android:textSize="16dp"
+            app:checkedIcon="@drawable/ic_check"
+            app:chipBackgroundColor="@color/chip_background"
+            app:textStartPadding="10dp" />
+
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/textViewDifficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="DIFFICULTY"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCategoryGoalUpdate" />
+
+    <TextView
+        android:id="@+id/textViewStartDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Start Date"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextDescriptionGoalUpdate" />
+
+    <TextView
+        android:id="@+id/textViewStartDateGoalUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:text="DD - MM - YYYY"
+        android:textSize="18dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewStartDate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

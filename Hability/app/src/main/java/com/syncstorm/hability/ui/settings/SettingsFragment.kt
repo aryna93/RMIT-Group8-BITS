@@ -18,11 +18,9 @@ import com.syncstorm.hability.databinding.SettingsFragmentBinding
 
 class SettingsFragment : Fragment() {
 
-    private lateinit var settingsViewModel: SettingsViewModel
-    private lateinit var habilityDB: DatabaseHelper
-    private lateinit var userName: MutableList<String>
-    private lateinit var userEmail: MutableList<String>
+    private lateinit var viewModel: SettingsViewModel
     private var _binding: SettingsFragmentBinding? = null
+
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -33,36 +31,32 @@ class SettingsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        settingsViewModel =
+        viewModel =
             ViewModelProvider(this).get(SettingsViewModel::class.java)
 
         _binding = SettingsFragmentBinding.inflate(inflater, container, false)
         val root = binding.root
+        viewModel = SettingsViewModel()
+        viewModel.userCredentialDB = DatabaseHelper(requireContext())
+        viewModel.userName = mutableListOf()
+        viewModel.userEmail = mutableListOf()
+        viewModel.editTextUserName = root.findViewById(R.id.editTextUserName)
+        viewModel.editTextEmailAddress = root.findViewById(R.id.editTextEmailAddress)
+        viewModel.saveButtonSettings = root.findViewById(R.id.buttonSettingsSave)
 
-
-        val editTextUserName = root.findViewById<EditText>(R.id.editTextName)
-        val editTextEmailAddress = root.findViewById<EditText>(R.id.editTextEmailAddress)
-        val saveButton = root.findViewById<Button>(R.id.buttonSettingsSave)
-
-
-
-        saveButton.setOnClickListener {
-            val habilityDB = DatabaseHelper(root.context)
-            habilityDB.addDataUserDetails(
-                editTextUserName.text.toString().trim(),
-                editTextEmailAddress.text.toString().trim()
+        viewModel.saveButtonSettings?.setOnClickListener {
+            viewModel.userCredentialDB?.addDataUserCredential(
+                viewModel.editTextUserName?.text.toString().trim(),
+                viewModel.editTextEmailAddress?.text.toString().trim()
             )
+            Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
         }
 
-        habilityDB = DatabaseHelper(root.context)
-        userName = mutableListOf()
-        userEmail = mutableListOf()
         storeDataIntoText()
-        if (userName.isNotEmpty() && userEmail.isNotEmpty()) {
-            editTextUserName.setText(userName.last())
-            editTextEmailAddress.setText(userEmail.last())
+        if (viewModel.userName!!.isNotEmpty() && viewModel.userEmail!!.isNotEmpty()) {
+            viewModel.editTextUserName?.setText(viewModel.userName?.last())
+            viewModel.editTextEmailAddress?.setText(viewModel.userEmail?.last())
         }
-
         return root
     }
 
@@ -71,14 +65,14 @@ class SettingsFragment : Fragment() {
         _binding = null
     }
 
-    protected fun storeDataIntoText() {
-        val cursor = habilityDB.readDataUserDetails()
+    private fun storeDataIntoText() {
+        val cursor = viewModel.userCredentialDB?.readDataUserDetails()
         if (cursor?.count == 0) {
             Toast.makeText(context, "No data", Toast.LENGTH_SHORT).show()
         } else {
             while (cursor?.moveToNext() == true) {
-                userName.add(cursor.getString(0))
-                userEmail.add(cursor.getString(1))
+                viewModel.userName?.add(cursor.getString(0))
+                viewModel.userEmail?.add(cursor.getString(1))
             }
         }
     }

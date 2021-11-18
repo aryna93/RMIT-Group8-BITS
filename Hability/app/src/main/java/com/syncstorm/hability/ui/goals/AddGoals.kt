@@ -1,15 +1,20 @@
 package com.syncstorm.hability.ui.goals
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.DatePicker
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.chip.Chip
 import com.syncstorm.hability.R
 import com.syncstorm.hability.database.DatabaseHelper
+import java.util.*
 
-class AddGoals : Fragment() {
+class AddGoals : Fragment(), DatePickerDialog.OnDateSetListener {
 
     private lateinit var viewModel: GoalsViewModel
 
@@ -26,27 +31,45 @@ class AddGoals : Fragment() {
         val view = inflater.inflate(R.layout.fragment_add_goals, container, false)
 
         viewModel = GoalsViewModel()
-        viewModel.editTextTitle = view.findViewById(R.id.editTextGoalTitle)
-        viewModel.editTextDescription = view.findViewById(R.id.editTextGoalDescription)
-        viewModel.editTextStartDate = view.findViewById(R.id.editTextStartDate)
-        viewModel.editTextEndDate = view.findViewById(R.id.editTextEndDate)
-        viewModel.editTextTime = view.findViewById(R.id.editTextGoalTime)
-        viewModel.editTextCategory = view.findViewById(R.id.editTextGoalTag)
-        viewModel.buttonCreate = view.findViewById(R.id.buttonCreateGoal)
+        viewModel.editTextAddTitleGoal = view.findViewById(R.id.editTextTitleGoalAdd)
+        viewModel.editTextAddDescriptionGoal = view.findViewById(R.id.editTextDescriptionGoalAdd)
+        viewModel.textViewAddStartDateGoal = view.findViewById(R.id.textViewStartDateGoalUpdate)
+        viewModel.chipGroupAddDifficultyGoal = view.findViewById(R.id.chipGroupDifficultyGoalAdd)
+        viewModel.editTextAddCategoryGoal = view.findViewById(R.id.editTextCategoryGoalAdd)
+        viewModel.buttonCreateGoal = view.findViewById(R.id.buttonCreateGoal)
 
-        viewModel.buttonCreate?.setOnClickListener {
+        viewModel.textViewAddStartDateGoal?.setOnClickListener {
+            showDatePickerDialog()
+        }
+
+        viewModel.buttonCreateGoal?.setOnClickListener {
             viewModel.goalsDB = DatabaseHelper(requireContext())
-            viewModel.goalsDB?.addDataTasks(
-                viewModel.editTextTitle?.text.toString().trim(),
-                viewModel.editTextDescription?.text.toString().trim(),
-                viewModel.editTextStartDate?.text.toString().trim(),
-                viewModel.editTextEndDate?.text.toString().trim(),
-                viewModel.editTextTime?.text.toString().trim(),
-                viewModel.editTextCategory?.text.toString().trim()
+            viewModel.goalsDB?.addDataGoals(
+                viewModel.editTextAddTitleGoal?.text.toString().trim(),
+                viewModel.editTextAddDescriptionGoal?.text.toString().trim(),
+                viewModel.textViewAddStartDateGoal?.text.toString().trim(),
+                viewModel.chipGroupAddDifficultyGoal?.findViewById<Chip>(viewModel.chipGroupAddDifficultyGoal!!.checkedChipId)?.text.toString()
+                    .trim(),
+                viewModel.editTextAddCategoryGoal?.text.toString().trim(),
             )
+
             findNavController().navigate(R.id.nav_goals)
         }
         return view
     }
 
+    override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        viewModel.textViewAddStartDateGoal?.text = "$dayOfMonth/$month/$year"
+    }
+
+    private fun showDatePickerDialog() {
+        val datePickerDialog = DatePickerDialog(
+            requireContext(),
+            this,
+            Calendar.getInstance().get(Calendar.YEAR),
+            Calendar.getInstance().get(Calendar.MONTH),
+            Calendar.getInstance().get(Calendar.DAY_OF_MONTH)
+        )
+        datePickerDialog.show()
+    }
 }

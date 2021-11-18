@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    protected fun storeDataIntoText() {
+    private fun storeDataIntoText() {
         val cursor = habilityDB.readDataUserDetails()
         if (cursor?.count == 0) {
             Toast.makeText(context, "No data", Toast.LENGTH_SHORT).show()

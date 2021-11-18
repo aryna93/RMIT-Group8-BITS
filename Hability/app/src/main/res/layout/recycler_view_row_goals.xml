@@ -22,76 +22,66 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/textViewTitle"
+                android:id="@+id/textViewTitleGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="16dp"
                 android:text="Title"
-                android:textColor="@color/blue_primary"
-                android:textSize="20dp"
+                android:textColor="@color/blue_secondary"
+                android:textSize="25dp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textViewDescription"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="Description"
-                android:textColor="@color/blue_secondary"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewTitle" />
-
-            <TextView
-                android:id="@+id/textViewStartDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
-                android:text="Start Date"
-                android:textSize="10dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
-
-            <TextView
-                android:id="@+id/textViewTime"
+                android:id="@+id/textViewStartDateGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:text="Time"
-                android:textSize="10dp"
+                android:text="Start Date"
+                android:textSize="8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textViewCategory"
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipDifficultyGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
-                android:layout_marginBottom="16dp"
-                android:background="@color/yellow_primary"
-                android:text="Category"
-                android:textColor="@color/blue_primary"
-                android:textSize="12dp"
+                android:textSize="10dp"
+                app:chipBackgroundColor="@color/chip_background"
+                app:chipIconSize="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewStartDateGoal" />
 
             <TextView
-                android:id="@+id/textViewEndDate"
+                android:id="@+id/textViewDescriptionGoal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="Description"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewTitleGoal"
+                app:layout_constraintVertical_bias="0.961" />
+
+            <TextView
+                android:id="@+id/textViewCategoryGoal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="End Date"
-                android:textSize="10dp"
-                app:layout_constraintStart_toEndOf="@+id/textViewStartDate"
-                app:layout_constraintTop_toBottomOf="@+id/textViewDescription" />
+                android:layout_marginEnd="16dp"
+                android:text="Category"
+                android:textSize="8dp"
+                app:layout_constraintEnd_toStartOf="@+id/textViewStartDateGoal"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

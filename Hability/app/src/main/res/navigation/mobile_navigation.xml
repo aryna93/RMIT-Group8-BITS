@@ -33,6 +33,9 @@
         <action
             android:id="@+id/action_nav_goals_to_updateGoal"
             app:destination="@id/updateGoal" />
+        <action
+            android:id="@+id/action_nav_goals_to_achievementGoal"
+            app:destination="@id/achievementGoal" />
     </fragment>
     <fragment
         android:id="@+id/nav_statistics"
@@ -54,4 +57,9 @@
         android:name="com.syncstorm.hability.ui.goals.UpdateGoal"
         android:label="Update Goal"
         tools:layout="@layout/fragment_update_goal" />
+    <fragment
+        android:id="@+id/achievementGoal"
+        android:name="com.syncstorm.hability.ui.goals.AchievementGoal"
+        android:label="fragment_achievement_goal"
+        tools:layout="@layout/fragment_achievement_goal" />
 </navigation>
