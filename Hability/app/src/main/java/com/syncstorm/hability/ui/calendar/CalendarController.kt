@@ -8,7 +8,7 @@ import java.util.*
 import java.util.stream.Collectors
 import java.util.stream.Stream
 
-class CalendarWeekController  {
+class CalendarController  {
     fun datesBetweeen(startDate: DateTime, endDate: DateTime): MutableList<String> {
         val dates: MutableList<String> = ArrayList()
 

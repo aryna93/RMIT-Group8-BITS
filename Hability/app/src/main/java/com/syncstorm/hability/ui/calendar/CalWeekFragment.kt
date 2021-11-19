@@ -11,12 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
 import com.syncstorm.hability.database.DatabaseHandler
 import com.syncstorm.hability.database.TaskModelClass
-import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
-import org.joda.time.format.DateTimeFormat.forPattern
-import org.joda.time.format.DateTimeFormatter
-import java.time.LocalDate
-import java.time.LocalDateTime
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -61,13 +56,13 @@ class CalWeekFragment : Fragment() {
         val endWeekDate = getStartEndDate.endDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
         val textViewTodayDate: TextView = view.findViewById(R.id.textViewWeekStartEndDate)
         textViewTodayDate.text = "This week: " + startWeekDate + "  |  " + endWeekDate
-        val calC = CalendarWeekController()
+        val calC = CalendarController()
         val weekDates: MutableList<String> = calC.datesBetweeen(getStartEndDate.startDate, getStartEndDate.endDate)
 
-        val allTasks: List<TaskModelClass> = data
+        val allTasks: MutableList<TaskModelClass> = data
         val weekTasks: MutableList<TaskModelClass> = ArrayList()
 
-        for (i in 0 until allTasks.size) {
+        for (i in allTasks.indices) {
             for (i in 0 until weekDates.size) {
                 if (allTasks[i].taskStartDate == weekDates[i]) {
                     val weekTask = TaskModelClass()
@@ -84,7 +79,8 @@ class CalWeekFragment : Fragment() {
                 }
             }
         }
-        val adapter = CalDayAdapter(weekTasks)
+
+        val adapter = CalWeekAdapter(weekTasks)
         recyclerview.adapter = adapter
         recyclerview.layoutManager = LinearLayoutManager(context)
 

@@ -21,7 +21,7 @@ class CalWeekAdapter (private val mList: MutableList<TaskModelClass>) : Recycler
         // inflates the card_view_design view
         // that is used to hold list item
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.calendar_day_recyclerview, parent, false)
+            .inflate(R.layout.calendar_week_recyclerview, parent, false)
 
         return ViewHolder(view)
     }
