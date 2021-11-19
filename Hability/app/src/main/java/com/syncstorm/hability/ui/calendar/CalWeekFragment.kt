@@ -6,11 +6,17 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
 import com.syncstorm.hability.database.DatabaseHandler
+import com.syncstorm.hability.database.TaskModelClass
+import org.joda.time.DateTime
+import org.joda.time.format.DateTimeFormat
+import org.joda.time.format.DateTimeFormat.forPattern
+import org.joda.time.format.DateTimeFormatter
+import java.time.LocalDate
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -50,14 +56,37 @@ class CalWeekFragment : Fragment() {
         val context = requireContext()
         val db = DatabaseHandler(context)
         val data = db.readTask()
-        val today = LocalDateTime.now()
-        val todayDate = today.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-        val startEndDate: DateTimeHelper.StartEndDate = DateTimeHelper.getCurrentWeekStartEndDate()
-        val startDate = startEndDate.startDate
-        val endDate = startEndDate.endDate
+        val getStartEndDate: DateTimeHelper.StartEndDate = DateTimeHelper.getCurrentWeekStartEndDate()
+        val startWeekDate = getStartEndDate.startDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
+        val endWeekDate = getStartEndDate.endDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
         val textViewTodayDate: TextView = view.findViewById(R.id.textViewWeekStartEndDate)
-        textViewTodayDate.text = "This week: " + startDate + "  |  " + endDate
+        textViewTodayDate.text = "This week: " + startWeekDate + "  |  " + endWeekDate
+        val calC = CalendarWeekController()
+        val weekDates: MutableList<String> = calC.datesBetweeen(getStartEndDate.startDate, getStartEndDate.endDate)
 
+        val allTasks: List<TaskModelClass> = data
+        val weekTasks: MutableList<TaskModelClass> = ArrayList()
+
+        for (i in 0 until allTasks.size) {
+            for (i in 0 until weekDates.size) {
+                if (allTasks[i].taskStartDate == weekDates[i]) {
+                    val weekTask = TaskModelClass()
+                    weekTask.taskID = allTasks[i].taskID
+                    weekTask.taskName = allTasks[i].taskName
+                    weekTask.taskDescription = allTasks[i].taskDescription
+                    weekTask.taskStatus = allTasks[i].taskStatus
+                    weekTask.taskCategory = allTasks[i].taskCategory
+                    weekTask.taskStartDate = allTasks[i].taskStartDate
+                    weekTask.taskStartTime = allTasks[i].taskStartTime
+                    weekTask.taskEndDate  = allTasks[i].taskEndDate
+                    weekTask.taskEndTime = allTasks[i].taskEndTime
+                    weekTasks.add(weekTask)
+                }
+            }
+        }
+        val adapter = CalDayAdapter(weekTasks)
+        recyclerview.adapter = adapter
+        recyclerview.layoutManager = LinearLayoutManager(context)
 
     }
 

@@ -7,7 +7,7 @@ object DateTimeHelper {
 
         fun getCurrentWeekStartEndDate(): StartEndDate {
             return StartEndDate(
-                DateTime.now().withDayOfWeek(DateTimeConstants.SUNDAY).minusWeeks(1),
+                DateTime.now().withDayOfWeek(DateTimeConstants.MONDAY),
                 DateTime.now().withDayOfWeek(DateTimeConstants.SUNDAY)
             )
         }
