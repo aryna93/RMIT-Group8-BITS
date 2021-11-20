@@ -36,10 +36,6 @@ class HomeFragment : Fragment() {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-//        val textView: TextView = binding.textViewUserNameHome
-//        homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-//        })
 
         val textViewUserNameHome = root.findViewById<TextView>(R.id.textViewUserNameHome)
         habilityDB = DatabaseHelper(root.context)

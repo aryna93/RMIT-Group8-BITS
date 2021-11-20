@@ -99,15 +99,46 @@ class DatabaseHelper(
     }
 
 
-//    fun readDataGoalsDifficulty(row_id: String): Cursor?{
-//        val query = "SELECT $COLUMN_DIFFICULTY WHERE $COLUMN_ID_GOAL = $row_id"
-//        val db = this.readableDatabase
-//        var cursor: Cursor? = null
-//        if (db != null) {
-//            cursor = db.rawQuery(query, null)
-//        }
-//        return cursor
-//    }
+    fun readDataGoalsDifficultyTrivial(): Cursor?{
+        val query =
+            "SELECT * FROM $TABLE_NAME_GOALS WHERE $COLUMN_DIFFICULTY='Trivial'"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        if (db != null) {
+            cursor = db.rawQuery(query, null)
+        }
+        return cursor
+    }
+
+    fun readDataGoalsDifficultyEasy(): Cursor?{
+        val query = "SELECT * FROM $TABLE_NAME_GOALS WHERE $COLUMN_DIFFICULTY ='Easy'"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        if (db != null) {
+            cursor = db.rawQuery(query, null)
+        }
+        return cursor
+    }
+
+    fun readDataGoalsDifficultyMedium(): Cursor?{
+        val query = "SELECT * FROM $TABLE_NAME_GOALS WHERE $COLUMN_DIFFICULTY ='Medium'"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        if (db != null) {
+            cursor = db.rawQuery(query, null)
+        }
+        return cursor
+    }
+
+    fun readDataGoalsDifficultyHard(): Cursor?{
+        val query = "SELECT * FROM $TABLE_NAME_GOALS WHERE $COLUMN_DIFFICULTY ='Hard'"
+        val db = this.readableDatabase
+        var cursor: Cursor? = null
+        if (db != null) {
+            cursor = db.rawQuery(query, null)
+        }
+        return cursor
+    }
 
 
     // User Credential
