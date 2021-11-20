@@ -13,9 +13,8 @@ class FragmentAdapterStats(fragmentManager: FragmentManager, lifecycle: Lifecycl
 
     override fun createFragment(p0: Int): Fragment {
         when (p0) {
-            1 -> return StatsWeekFragment()
-            2 -> return StatsMonthFragment()
-            else -> return StatsDayFragment()
+            1 -> return StatsGoalsFragment()
+            else -> return StatsTasksFragment()
 
         }
     }

@@ -57,7 +57,7 @@ class CalWeekFragment : Fragment() {
         val startWeekDate = getStartEndDate.startDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
         val endWeekDate = getStartEndDate.endDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
         val textViewTodayDate: TextView = view.findViewById(R.id.textViewWeekStartEndDate)
-        textViewTodayDate.text = "This week: " + startWeekDate + "  |  " + endWeekDate + " || \n"
+        textViewTodayDate.text = "This week: " + startWeekDate + "  |  " + endWeekDate
         val calC = CalendarController(context)
         val weekDates: MutableList<String> = calC.DatesBetweeen(getStartEndDate.startDate, getStartEndDate.endDate)
 

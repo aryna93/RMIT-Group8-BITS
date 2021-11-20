@@ -23,7 +23,6 @@ class CalendarController(val context: Context)  {
             val d = startDate.withFieldAdded(DurationFieldType.days(), i)
             dates.add(d.toString(DateTimeFormat.forPattern("dd/MM/yyyy")))
         }
-
         return dates
     }
 

@@ -57,7 +57,7 @@ class CalMonthFragment : Fragment() {
             getStartEndDate.startDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
         val endMonthDate = getStartEndDate.endDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
         val textViewTodayDate: TextView = view.findViewById(R.id.textViewMonthStartEndDate)
-        textViewTodayDate.text = "This week: " + startMonthDate + "  |  " + endMonthDate + " || \n"
+        textViewTodayDate.text = "This month: " + startMonthDate + "  |  " + endMonthDate
         val calC = CalendarController(context)
         val monthDates: MutableList<String> =
             calC.DatesBetweeen(getStartEndDate.startDate, getStartEndDate.endDate)

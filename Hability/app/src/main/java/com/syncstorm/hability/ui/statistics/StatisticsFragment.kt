@@ -32,9 +32,8 @@ class StatisticsFragment : Fragment() {
         var adapter = FragmentAdapterStats(childFragmentManager, lifecycle)
         viewPager2Stats.adapter = adapter
 
-        tabLayoutStats.addTab(tabLayoutStats.newTab().setText("Day"))
-        tabLayoutStats.addTab(tabLayoutStats.newTab().setText("Week"))
-        tabLayoutStats.addTab(tabLayoutStats.newTab().setText("Month"))
+        tabLayoutStats.addTab(tabLayoutStats.newTab().setText("Tasks"))
+        tabLayoutStats.addTab(tabLayoutStats.newTab().setText("Goals"))
 
         tabLayoutStats.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
 

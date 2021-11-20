@@ -5,7 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.boyzdroizy.simpleandroidbarchart.SimpleBarChart
 import com.syncstorm.hability.R
+import kotlin.random.Random
+import com.github.mikephil.charting.utils.ColorTemplate
+
+import android.R.attr.data
+import com.github.mikephil.charting.charts.BarChart
+import com.github.mikephil.charting.charts.PieChart
+import com.github.mikephil.charting.data.*
+import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import com.syncstorm.hability.database.DatabaseHandler
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -17,7 +28,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [StatsDayFragment.newInstance] factory method to
  * create an instance of this fragment.
  */
-class StatsDayFragment : Fragment() {
+class StatsTasksFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -35,7 +46,26 @@ class StatsDayFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stats_day, container, false)
+        return inflater.inflate(R.layout.fragment_stats_tasks, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val context = requireContext()
+        val db = DatabaseHandler(context)
+        val dbData = db.readTask()
+        val statsC = TaskStatsController()
+
+        val sumTaskCategories = statsC.getSumTaskCategories(dbData)
+        val daySumTaskCategories = statsC.getDaySumTaskCategories(dbData)
+        val barChart: BarChart = view.findViewById(R.id.barChartTasks)
+        val dayBarChart: BarChart = view.findViewById(R.id.barChartDayTasks)
+        val pieChart: PieChart = view.findViewById(R.id.pieChartStats)
+        val scHelper = StatsChartHelper()
+        scHelper.barChart(barChart, sumTaskCategories)
+        scHelper.barChart(dayBarChart, daySumTaskCategories)
+
     }
 
     companion object {
@@ -50,7 +80,7 @@ class StatsDayFragment : Fragment() {
         // TODO: Rename and change types and number of parameters
         @JvmStatic
         fun newInstance(param1: String, param2: String) =
-            StatsDayFragment().apply {
+            StatsTasksFragment().apply {
                 arguments = Bundle().apply {
                     putString(ARG_PARAM1, param1)
                     putString(ARG_PARAM2, param2)
