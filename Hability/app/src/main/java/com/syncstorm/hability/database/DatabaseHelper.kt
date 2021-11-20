@@ -99,6 +99,17 @@ class DatabaseHelper(
     }
 
 
+//    fun readDataGoalsDifficulty(row_id: String): Cursor?{
+//        val query = "SELECT $COLUMN_DIFFICULTY WHERE $COLUMN_ID_GOAL = $row_id"
+//        val db = this.readableDatabase
+//        var cursor: Cursor? = null
+//        if (db != null) {
+//            cursor = db.rawQuery(query, null)
+//        }
+//        return cursor
+//    }
+
+
     // User Credential
     fun addDataUserCredential(
         name: String,

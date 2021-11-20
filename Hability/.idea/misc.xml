@@ -31,10 +31,12 @@
         <entry key="app/src/main/res/layout/fragment_day.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3229166666666667" />
         <entry key="app/src/main/res/layout/fragment_month.xml" value="0.2740628166160081" />
-        <entry key="app/src/main/res/layout/fragment_scheduler.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_scheduler.xml" value="0.45" />
         <entry key="app/src/main/res/layout/fragment_slideshow.xml" value="0.3229166666666667" />
         <entry key="app/src/main/res/layout/fragment_stats_day.xml" value="0.2740628166160081" />
+        <entry key="app/src/main/res/layout/fragment_stats_goals.xml" value="0.37228260869565216" />
         <entry key="app/src/main/res/layout/fragment_stats_month.xml" value="0.2740628166160081" />
+        <entry key="app/src/main/res/layout/fragment_stats_tasks.xml" value="0.37228260869565216" />
         <entry key="app/src/main/res/layout/fragment_stats_week.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_up_goals.xml" value="0.262037037037037" />
         <entry key="app/src/main/res/layout/fragment_update_goal.xml" value="0.45" />

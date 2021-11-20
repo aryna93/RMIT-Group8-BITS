@@ -91,4 +91,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewUserPic2" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewScheduler"
+        android:layout_width="409dp"
+        android:layout_height="458dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="272dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
