@@ -1,12 +1,16 @@
 package com.syncstorm.hability.ui.statistics
 
+import android.graphics.Color
 import com.github.mikephil.charting.charts.BarChart
 import com.github.mikephil.charting.charts.PieChart
-import com.github.mikephil.charting.data.BarData
-import com.github.mikephil.charting.data.BarDataSet
-import com.github.mikephil.charting.data.BarEntry
+import com.github.mikephil.charting.data.*
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import com.github.mikephil.charting.utils.ColorTemplate
+import com.github.mikephil.charting.formatter.PercentFormatter
+
+
+
+
 
 class StatsChartHelper {
     fun barChart (barChart: BarChart, sumTaskCategories: TaskCategoryStatsModel) {
@@ -52,6 +56,47 @@ class StatsChartHelper {
     }
 
     fun pieChart (pieChart: PieChart, sumTaskCategories: TaskCategoryStatsModel) {
+        val pieEntries: ArrayList<PieEntry> = ArrayList()
+        val label = ""
 
+        val typeAmountMap: MutableMap<String, Int> = HashMap()
+        typeAmountMap["General"] = sumTaskCategories.general
+        typeAmountMap["Business"] = sumTaskCategories.business
+        typeAmountMap["Cooking"] = sumTaskCategories.cooking
+        typeAmountMap["Gym"] = sumTaskCategories.gym
+        typeAmountMap["Leisure"] = sumTaskCategories.leisure
+        typeAmountMap["Studying"] = sumTaskCategories.studying
+        typeAmountMap["Reading"] = sumTaskCategories.reading
+
+        //initializing colors for the entries
+        //initializing colors for the entries
+        val colors: ArrayList<Int> = ArrayList()
+        colors.add(Color.parseColor("#304567"))
+        colors.add(Color.parseColor("#309967"))
+        colors.add(Color.parseColor("#476567"))
+        colors.add(Color.parseColor("#890567"))
+        colors.add(Color.parseColor("#a35567"))
+        colors.add(Color.parseColor("#ff5f67"))
+        colors.add(Color.parseColor("#3ca567"))
+
+        for (type in typeAmountMap.keys) {
+            pieEntries.add(PieEntry(typeAmountMap[type]!!.toFloat(), type))
+        }
+
+        val pieDataSet = PieDataSet(pieEntries, label)
+        pieDataSet.setValueFormatter(PercentFormatter())
+        pieDataSet.valueTextSize = 12f
+        pieDataSet.colors = colors
+        pieChart.description.isEnabled = false
+        pieChart.setUsePercentValues(true)
+
+        pieChart.setHighlightPerTapEnabled(true)
+
+        val pieData = PieData(pieDataSet)
+
+        pieData.setDrawValues(true)
+
+        pieChart.data = pieData
+        pieChart.invalidate()
     }
 }

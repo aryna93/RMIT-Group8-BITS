@@ -59,12 +59,20 @@ class StatsTasksFragment : Fragment() {
 
         val sumTaskCategories = statsC.getSumTaskCategories(dbData)
         val daySumTaskCategories = statsC.getDaySumTaskCategories(dbData)
+        val monthSumTaskCategories = statsC.getMonthSumTaskCategories(dbData, context)
         val barChart: BarChart = view.findViewById(R.id.barChartTasks)
         val dayBarChart: BarChart = view.findViewById(R.id.barChartDayTasks)
+        val monthBarChart: BarChart = view.findViewById(R.id.barChartMonthTasks)
         val pieChart: PieChart = view.findViewById(R.id.pieChartStats)
+        val dayPieChart: PieChart = view.findViewById(R.id.pieChartDayStats)
+        val monthPieChart: PieChart = view.findViewById(R.id.pieChartMonthStats)
         val scHelper = StatsChartHelper()
         scHelper.barChart(barChart, sumTaskCategories)
         scHelper.barChart(dayBarChart, daySumTaskCategories)
+        scHelper.barChart(monthBarChart, monthSumTaskCategories)
+        scHelper.pieChart(pieChart, sumTaskCategories)
+        scHelper.pieChart(dayPieChart, daySumTaskCategories)
+        scHelper.pieChart(monthPieChart, monthSumTaskCategories)
 
     }
 
