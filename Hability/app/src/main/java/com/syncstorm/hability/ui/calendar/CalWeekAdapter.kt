@@ -44,8 +44,8 @@ class CalWeekAdapter (private val mList: MutableList<TaskModelClass>) : Recycler
         holder.textViewWeekTaskStatus.text = TaskModelClass.taskStatus
         holder.textViewWeekTaskTitle.text = TaskModelClass.taskName
         holder.textViewWeekTaskDescription.text = TaskModelClass.taskDescription
-        holder.textViewWeekStartLabel.text = "START: " + TaskModelClass.taskStartTime
-        holder.textViewWeekEndLabel.text = "END: " + TaskModelClass.taskEndTime
+        holder.textViewWeekStartLabel.text = "START: " + TaskModelClass.taskStartTime + " (" + TaskModelClass.taskStartDate + ")"
+        holder.textViewWeekEndLabel.text = "END: " + TaskModelClass.taskEndTime + " (" + TaskModelClass.taskEndDate + ")"
 
         holder.cardViewCalWeekRecycler.setOnClickListener {
 
@@ -57,7 +57,7 @@ class CalWeekAdapter (private val mList: MutableList<TaskModelClass>) : Recycler
         holder.textViewButtonWeekDeleteTask.setOnClickListener {
             mList.get(position).taskID?.let { it1 -> db.deleteTask(it1.toInt()) }
             removeItem(position)
-
+            notifyDataSetChanged()
         }
 
     }

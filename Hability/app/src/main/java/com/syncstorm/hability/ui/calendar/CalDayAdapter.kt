@@ -57,7 +57,7 @@ class CalDayAdapter (private val mList: MutableList<TaskModelClass>) : RecyclerV
         holder.textViewButtonDeleteTask.setOnClickListener {
             mList.get(position).taskID?.let { it1 -> db.deleteTask(it1.toInt()) }
             removeItem(position)
-
+            notifyDataSetChanged()
         }
 
         }

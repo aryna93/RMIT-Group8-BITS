@@ -12,6 +12,8 @@ import com.syncstorm.hability.R
 import com.syncstorm.hability.database.DatabaseHandler
 import com.syncstorm.hability.database.TaskModelClass
 import org.joda.time.format.DateTimeFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,16 +57,16 @@ class CalWeekFragment : Fragment() {
         val startWeekDate = getStartEndDate.startDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
         val endWeekDate = getStartEndDate.endDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
         val textViewTodayDate: TextView = view.findViewById(R.id.textViewWeekStartEndDate)
-        textViewTodayDate.text = "This week: " + startWeekDate + "  |  " + endWeekDate
-        val calC = CalendarController()
-        val weekDates: MutableList<String> = calC.datesBetweeen(getStartEndDate.startDate, getStartEndDate.endDate)
+        textViewTodayDate.text = "This week: " + startWeekDate + "  |  " + endWeekDate + " || \n"
+        val calC = CalendarController(context)
+        val weekDates: MutableList<String> = calC.DatesBetweeen(getStartEndDate.startDate, getStartEndDate.endDate)
 
         val allTasks: MutableList<TaskModelClass> = data
         val weekTasks: MutableList<TaskModelClass> = ArrayList()
 
-        for (i in allTasks.indices) {
-            for (i in 0 until weekDates.size) {
-                if (allTasks[i].taskStartDate == weekDates[i]) {
+        for (i in allTasks.indices ) {
+            for (d in weekDates.indices) {
+                if (allTasks[i].taskStartDate == weekDates[d]) {
                     val weekTask = TaskModelClass()
                     weekTask.taskID = allTasks[i].taskID
                     weekTask.taskName = allTasks[i].taskName
