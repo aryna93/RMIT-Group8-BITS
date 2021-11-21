@@ -53,7 +53,7 @@
         android:name="com.syncstorm.hability.ui.creationform.CreationForm"
         android:label="Create Task"
         tools:layout="@layout/creation_form_fragment" />
-
+    <fragment
         android:id="@+id/addGoals"
         android:name="com.syncstorm.hability.ui.goals.AddGoals"
         android:label="Create Goal"
