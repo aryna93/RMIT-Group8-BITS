@@ -68,8 +68,6 @@ class StatsChartHelper {
         typeAmountMap["Studying"] = sumTaskCategories.studying
         typeAmountMap["Reading"] = sumTaskCategories.reading
 
-        //initializing colors for the entries
-        //initializing colors for the entries
         val colors: ArrayList<Int> = ArrayList()
         colors.add(Color.parseColor("#304567"))
         colors.add(Color.parseColor("#309967"))
