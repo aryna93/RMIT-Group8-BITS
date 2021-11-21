@@ -9,6 +9,7 @@ class DatabaseHandler(var context: Context) : SQLiteOpenHelper(context, "HABILIT
     1) {
     private val dbModel = DatabaseModel()
     private val tableName = dbModel.TABLENAME
+    private val TABLE_NAME_GOALS = "goals"
     // val dbName = dbModel.DATABASENAME
 
     override fun onCreate(db: SQLiteDatabase?) {

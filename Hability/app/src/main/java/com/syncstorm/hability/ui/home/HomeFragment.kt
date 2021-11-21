@@ -15,6 +15,7 @@ import com.syncstorm.hability.database.DatabaseHandler
 import com.syncstorm.hability.database.DatabaseHelper
 import com.syncstorm.hability.database.TaskModelClass
 import com.syncstorm.hability.databinding.FragmentHomeBinding
+import com.syncstorm.hability.ui.goals.GoalsViewModel
 import java.lang.IndexOutOfBoundsException
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
@@ -74,6 +75,7 @@ class HomeFragment : Fragment() {
         // Latest Goal
         val tvLatestGoalName: TextView = view.findViewById(R.id.textViewLatestGoalName)
         val tvLatestGoalCategory: TextView = view.findViewById(R.id.textViewLatestGoalCategory)
+        val tvLatestGoalDescription: TextView = view.findViewById(R.id.textViewLatestGoalDescription)
         val tvLatestGoalDifficulty: TextView = view.findViewById(R.id.textViewLatestGoalDifficulty)
         val imgLatestGoalDifficulty: ImageView = view.findViewById(R.id.imageViewLatestGoalDifficulty)
 
@@ -81,8 +83,25 @@ class HomeFragment : Fragment() {
         val homeC = HomeController()
 
         // Goal
-        val dbGoal = DatabaseHelper(context)
-        val dataGoals = dbGoal.readDataGoals()
+        val dbGoals = DatabaseHelper(context)
+        val dataGoals = dbGoals.readDataModelGoals()
+        try {
+            val latestGoal = homeC.getLatestGoal(dataGoals)
+            tvLatestGoalName.text = latestGoal.goalTitle
+            tvLatestGoalCategory.text = latestGoal.goalCategory
+            tvLatestGoalDescription.text = latestGoal.goalDescription
+            tvLatestGoalDifficulty.text = latestGoal.goalDifficulty
+
+            when (latestGoal.goalDifficulty) {
+                "Trivial" -> imgLatestGoalDifficulty.setImageResource(R.drawable.trivial_difficulty)
+                "Easy" -> imgLatestGoalDifficulty.setImageResource(R.drawable.easy_difficulty)
+                "Medium" -> imgLatestGoalDifficulty.setImageResource(R.drawable.moderate_difficulty)
+                "Hard" -> imgLatestGoalDifficulty.setImageResource(R.drawable.hard_difficulty)
+            }
+
+        } catch (e: IndexOutOfBoundsException) {
+            Toast.makeText(context, "No Goals for Today!", Toast.LENGTH_SHORT).show()
+        }
 
         // Task
         val dbTask = DatabaseHandler(context)
@@ -111,6 +130,7 @@ class HomeFragment : Fragment() {
         }
 
         tvTaskTodayActiveCount.text = homeC.getSumAllTasksToday(dataTasks)
+        tvGoalActiveCount.text = homeC.getSumAllGoals(dataGoals)
 
     }
 

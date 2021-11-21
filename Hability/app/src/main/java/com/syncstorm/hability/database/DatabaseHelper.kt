@@ -68,6 +68,28 @@ class DatabaseHelper(
         return cursor
     }
 
+    fun readDataModelGoals(): MutableList<GoalsModelClass>{
+        val list: MutableList<GoalsModelClass> = ArrayList()
+        val db = this.readableDatabase
+        val query = "Select * from $TABLE_NAME_GOALS"
+        val result = db.rawQuery(query, null)
+        if (result.moveToFirst()) {
+            do {
+                val goal = GoalsModelClass()
+                goal.goalID = result.getString(result.getColumnIndex(COLUMN_ID_GOAL)).toInt()
+                goal.goalTitle = result.getString(result.getColumnIndex(COLUMN_TITLE))
+                goal.goalDescription = result.getString(result.getColumnIndex(COLUMN_DESCRIPTION))
+                goal.goalStartDate = result.getString(result.getColumnIndex(COLUMN_START_DATE))
+                goal.goalDifficulty = result.getString(result.getColumnIndex(COLUMN_DIFFICULTY))
+                goal.goalCategory = result.getString(result.getColumnIndex(COLUMN_CATEGORY))
+                list.add(goal)
+            }
+            while (result.moveToNext())
+        }
+        return list
+    }
+
+
     fun updateDataGoals(
         row_id: String,
         title: String,

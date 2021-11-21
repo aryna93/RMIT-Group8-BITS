@@ -44,7 +44,7 @@
         android:id="@+id/viewFixed"
         android:layout_width="354dp"
         android:layout_height="125dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@color/blue_secondary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -183,10 +183,11 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="52dp"
         android:text="Goal Category"
+        android:maxLength="18"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewFixed"
-        app:layout_constraintVertical_bias="0.365" />
+        app:layout_constraintVertical_bias="0.535" />
 
     <TextView
         android:id="@+id/textViewLatestGoalName"
@@ -197,7 +198,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        android:maxLength="14"
         app:layout_constraintVertical_bias="0.277" />
+
+    <TextView
+        android:id="@+id/textViewLatestGoalDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:text="Goal Description"
+        android:maxLength="18"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.363" />
 
     <ImageView
         android:id="@+id/imageViewGoalsHeading"
@@ -318,6 +332,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        android:maxLength="14"
         app:layout_constraintVertical_bias="0.277" />
 
     <TextView
@@ -339,6 +354,7 @@
         android:text="Task Description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:maxLength="18"
         app:layout_constraintTop_toBottomOf="@+id/viewFixed"
         app:layout_constraintVertical_bias="0.365" />
 

@@ -1,5 +1,6 @@
 package com.syncstorm.hability.ui.home
 
+import com.syncstorm.hability.database.GoalsModelClass
 import com.syncstorm.hability.database.TaskModelClass
 import java.time.LocalDate
 import java.time.LocalDateTime
@@ -13,7 +14,7 @@ class HomeController {
     fun getLatestTask(allTasks: MutableList<TaskModelClass>): TaskModelClass {
         val todayTasks: MutableList<TaskModelClass> = ArrayList()
         for (i in 0 until allTasks.size) {
-            if (allTasks[i].taskStartDate == todayDate) {
+            if (allTasks[i].taskStartDate == todayDate && allTasks[i].taskStatus == "Active") {
                 val todayTask = TaskModelClass()
                 todayTask.taskID = allTasks[i].taskID
                 todayTask.taskName = allTasks[i].taskName
@@ -38,6 +39,36 @@ class HomeController {
             todayTasks[0].taskEndDate,
             todayTasks[0].taskEndTime
         )
+    }
+
+    fun getLatestGoal(allGoals: MutableList<GoalsModelClass>): GoalsModelClass {
+        val todayGoals: MutableList<GoalsModelClass> = ArrayList()
+        for (i in 0 until allGoals.size) {
+                val todayGoal = GoalsModelClass()
+                todayGoal.goalID = allGoals[i].goalID
+                todayGoal.goalTitle = allGoals[i].goalTitle
+                todayGoal.goalDescription = allGoals[i].goalDescription
+                todayGoal.goalDifficulty = allGoals[i].goalDifficulty
+                todayGoal.goalCategory = allGoals[i].goalCategory
+                todayGoal.goalStartDate = allGoals[i].goalStartDate
+                todayGoals.add(todayGoal)
+        }
+        return GoalsModelClass(
+            todayGoals[0].goalID,
+            todayGoals[0].goalTitle,
+            todayGoals[0].goalDescription,
+            todayGoals[0].goalStartDate,
+            todayGoals[0].goalDifficulty,
+            todayGoals[0].goalCategory
+        )
+    }
+
+    fun getSumAllGoals(allGoals: MutableList<GoalsModelClass>): String {
+        var counter = 0
+        for (i in allGoals.indices) {
+            ++counter
+        }
+        return counter.toString()
     }
 
     fun getSumAllTasksToday(allTasks: MutableList<TaskModelClass>): String {
