@@ -42,40 +42,79 @@
 
     <View
         android:id="@+id/viewFixed"
-        android:layout_width="350dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="64dp"
+        android:layout_width="354dp"
+        android:layout_height="125dp"
+        android:layout_marginTop="16dp"
         android:background="@color/blue_secondary"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewUserNameHome" />
+
+    <TextView
+        android:id="@+id/textViewActiveLabel3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:layout_marginEnd="8dp"
+        android:text="To Go"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed" />
+
+    <TextView
+        android:id="@+id/textViewGoalActiveCount"
+        android:layout_width="12dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="56dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed" />
 
     <TextView
         android:id="@+id/textViewTaskDoneFixed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
-        android:text="Task Done"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Tasks"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed" />
+
+    <TextView
+        android:id="@+id/textViewTaskActiveToday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:layout_marginEnd="152dp"
+        android:text="TODAY"
+        android:textColor="@color/white"
+
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
         app:layout_constraintTop_toTopOf="@+id/viewFixed" />
 
     <TextView
         android:id="@+id/textViewWeeklyProgressFixed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="32dp"
-        android:text="Weekly Progress"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="12dp"
+        android:text="Goals"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="@+id/viewFixed"
         app:layout_constraintTop_toTopOf="@+id/viewFixed" />
 
+
     <View
         android:id="@+id/view2"
-        android:layout_width="411dp"
-        android:layout_height="165dp"
+        android:layout_width="424dp"
+        android:layout_height="128dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,24 +122,258 @@
 
     <View
         android:id="@+id/view3"
-        android:layout_width="170dp"
-        android:layout_height="230dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="159dp"
+        android:layout_height="232dp"
+        android:layout_marginStart="36dp"
         android:layout_marginTop="8dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewFixed" />
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <TextView
+        android:id="@+id/textViewLatestTaskCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="268dp"
+        android:text="General"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.888" />
 
     <View
         android:id="@+id/view4"
-        android:layout_width="170dp"
-        android:layout_height="230dp"
+        android:layout_width="154dp"
+        android:layout_height="232dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
         android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/viewFixed" />
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.66" />
+
+    <ImageView
+        android:id="@+id/imageViewLatestGoalDifficulty"
+        android:layout_width="65dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="80dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.814"
+        app:srcCompat="@drawable/star" />
+
+    <TextView
+        android:id="@+id/textViewLatestGoalDifficulty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="96dp"
+        android:text="Easy"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.887" />
+
+    <TextView
+        android:id="@+id/textViewLatestGoalCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:text="Goal Category"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.365" />
+
+    <TextView
+        android:id="@+id/textViewLatestGoalName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="52dp"
+        android:text="Goal Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.277" />
+
+    <ImageView
+        android:id="@+id/imageViewGoalsHeading"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="128dp"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed"
+        app:srcCompat="@drawable/goal" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="38dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="204dp"
+        android:layout_marginEnd="308dp"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed"
+        app:srcCompat="@drawable/task" />
+
+    <ImageView
+        android:id="@+id/imageViewTaskActiveIcon"
+        android:layout_width="27dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="324dp"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed"
+        app:srcCompat="@drawable/scheduled"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageViewTaskCompleteIcon"
+        android:layout_width="27dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="324dp"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed"
+        app:srcCompat="@drawable/complete_task"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imageViewTaskCompleteIcon2"
+        android:layout_width="24dp"
+        android:layout_height="23dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="88dp"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed"
+        app:srcCompat="@drawable/goal_complete_icon"
+        app:tint="@color/white" />
+
+    <TextView
+        android:id="@+id/textViewActiveLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="236dp"
+        android:text="Active"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed" />
+
+    <TextView
+        android:id="@+id/textViewDoneLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="240dp"
+        android:text="Done"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed" />
+
+    <TextView
+        android:id="@+id/textViewTaskTodayActiveCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="92dp"
+        android:layout_marginEnd="288dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed" />
+
+    <TextView
+        android:id="@+id/textViewTaskTodayDoneCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="288dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed" />
+
+    <TextView
+        android:id="@+id/textViewLatestTaskStartTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="304dp"
+        android:text="9:30 AM"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.537" />
+
+    <TextView
+        android:id="@+id/textViewLatestTaskName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="220dp"
+        android:text="Task Name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.277" />
+
+    <TextView
+        android:id="@+id/textViewLatestTaskEndTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="228dp"
+        android:text="11:00 PM"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.537" />
+
+    <TextView
+        android:id="@+id/textViewLatestTaskDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="220dp"
+        android:text="Task Description"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.365" />
+
+    <ImageView
+        android:id="@+id/imageViewLatestTaskCategory"
+        android:layout_width="65dp"
+        android:layout_height="54dp"
+        android:layout_marginEnd="264dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/viewFixed"
+        app:layout_constraintVertical_bias="0.814"
+        app:srcCompat="@drawable/taskcategory_misc" />
+
+    <TextView
+        android:id="@+id/textViewUpcomingLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="88dp"
+        android:text="Coming Up"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline5"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed" />
+
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="43dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="92dp"
+        android:layout_marginTop="135dp"
+        app:layout_constraintStart_toStartOf="@+id/viewFixed"
+        app:layout_constraintTop_toTopOf="@+id/viewFixed"
+        app:srcCompat="@drawable/upcoming" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

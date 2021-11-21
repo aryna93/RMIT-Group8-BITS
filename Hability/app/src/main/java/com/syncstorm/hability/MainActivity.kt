@@ -63,7 +63,6 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        //navController.navigate(R.id.nav_calendar)
         return true
     }
 
