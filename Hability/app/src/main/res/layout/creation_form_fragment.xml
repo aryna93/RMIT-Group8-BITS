@@ -80,22 +80,23 @@
         <DatePicker
             android:id="@+id/datePickerEnd"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:scaleX="0.7"
-            android:scaleY="0.7"
+            android:layout_height="196dp"
             android:layout_marginLeft="-50dp"
             android:layout_marginRight="-30dp"
+            android:calendarViewShown="false"
             android:datePickerMode="spinner"
-            android:calendarViewShown="false"/>
+            android:scaleX="0.7"
+            android:scaleY="0.7" />
+
         <TimePicker
             android:id="@+id/timePickerEnd"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="-60dp"
             android:scaleX="0.7"
             android:scaleY="0.7"
-            android:layout_marginLeft="-60dp"
-            android:layout_centerHorizontal="true"
-            android:timePickerMode="spinner"/>
+            android:timePickerMode="spinner" />
 
     </LinearLayout>
 
@@ -113,7 +114,7 @@
     <Button
         android:id="@+id/buttonCreationForm"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="58dp"
         android:text="CREATE" />
 
 

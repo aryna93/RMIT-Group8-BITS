@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.syncstorm.hability.R
 import com.syncstorm.hability.database.DatabaseHelper
 import com.syncstorm.hability.databinding.FragmentSchedulerBinding
@@ -35,6 +36,11 @@ class SchedulerFragment : Fragment() {
 
         _binding = FragmentSchedulerBinding.inflate(inflater, container, false)
         val root: View = binding.root
+        val addTaskFab = root.findViewById<FloatingActionButton>(R.id.floatingActionButtonAddTaskScheduler)
+
+        addTaskFab.setOnClickListener {
+            findNavController().navigate(R.id.nav_creationform)
+        }
         viewModel = SchedulerViewModel()
         viewModel.goalsDBScheduler = DatabaseHelper(requireContext())
         viewModel.chipGroupSchedulerDifficultyGoal =
