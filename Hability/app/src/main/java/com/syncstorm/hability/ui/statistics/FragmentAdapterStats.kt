@@ -8,13 +8,13 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 class FragmentAdapterStats(fragmentManager: FragmentManager, lifecycle: Lifecycle) :
     FragmentStateAdapter(fragmentManager, lifecycle) {
     override fun getItemCount(): Int {
-        return 3
+        return 2
     }
 
     override fun createFragment(p0: Int): Fragment {
-        when (p0) {
-            1 -> return StatsGoalsFragment()
-            else -> return StatsTasksFragment()
+        return when (p0) {
+            1 -> StatsGoalsFragment()
+            else -> StatsTasksFragment()
 
         }
     }

@@ -13,6 +13,7 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
     </style>
+
     <style name="autoscroll">
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">marquee</item>
@@ -20,6 +21,13 @@
         <item name="android:focusable">true</item>
         <item name="android:focusableInTouchMode">true</item>
         <item name="android:scrollHorizontally">true</item>
+    </style>
+
+
+
+    <style name="ThemeOverlay.Hability.FullscreenContainer" parent="">
+        <item name="fullscreenBackgroundColor">@color/light_blue_900</item>
+        <item name="fullscreenTextColor">@color/light_blue_A400</item>
     </style>
 
 </resources>

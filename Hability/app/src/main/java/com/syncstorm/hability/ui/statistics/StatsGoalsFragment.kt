@@ -1,33 +1,25 @@
 package com.syncstorm.hability.ui.statistics
-
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.github.mikephil.charting.data.PieData
+import com.github.mikephil.charting.data.PieDataSet
+import com.github.mikephil.charting.data.PieEntry
+import com.github.mikephil.charting.utils.ColorTemplate
 import com.syncstorm.hability.R
+import com.syncstorm.hability.database.DatabaseHelper
+import com.syncstorm.hability.ui.goals.GoalsViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [StatsWeekFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class StatsGoalsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+
+    private lateinit var viewModel: StatisticsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
     }
 
     override fun onCreateView(
@@ -35,26 +27,86 @@ class StatsGoalsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_stats_goals, container, false)
+        val view = inflater.inflate(R.layout.fragment_stats_goals, container, false)
+        viewModel = StatisticsViewModel()
+        viewModel.goalsDB = DatabaseHelper(requireContext())
+        viewModel.pieChartGoals = view.findViewById(R.id.pieChartGoals)
+
+
+        viewModel.pieChartVisitors = mutableListOf()
+        viewModel.pieChartVisitors?.add(PieEntry(countGoalsDifficultyTrivial(), "Trivial"))
+        viewModel.pieChartVisitors?.add(PieEntry(countGoalsDifficultyEasy(), "Easy"))
+        viewModel.pieChartVisitors?.add(PieEntry(countGoalsDifficultyMedium(), "Medium"))
+        viewModel.pieChartVisitors?.add(PieEntry(countGoalsDifficultyHard(), "Hard"))
+
+        viewModel.difficultyDataSet = PieDataSet(viewModel.pieChartVisitors, "")
+        viewModel.difficultyDataSet?.setColors(*ColorTemplate.COLORFUL_COLORS)
+        viewModel.difficultyDataSet?.valueTextColor = Color.WHITE
+        viewModel.difficultyDataSet?.valueTextSize = 16f
+
+        viewModel.difficultyData = PieData(viewModel.difficultyDataSet)
+        viewModel.pieChartGoals?.data = viewModel.difficultyData
+        viewModel.pieChartGoals?.description?.isEnabled = false
+        viewModel.pieChartGoals?.centerText = "Goals Difficulty"
+
+        viewModel.pieChartGoals?.animate()
+
+        return view
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment StatsWeekFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            StatsGoalsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
+    private fun countGoalsDifficultyTrivial(): Float {
+        val cursor = viewModel.goalsDB?.readDataGoalsDifficultyTrivial()
+        var count = 0f
+
+        when (cursor?.count) {
+            0 -> Toast.makeText(context, "No data", Toast.LENGTH_LONG).show()
+            else -> while (cursor?.moveToNext() == true) {
+                count++
             }
+
+        }
+        return count
+    }
+
+    private fun countGoalsDifficultyEasy(): Float {
+        val cursor = viewModel.goalsDB?.readDataGoalsDifficultyEasy()
+        var count: Float = 0f
+
+        when (cursor?.count) {
+            0 -> Toast.makeText(context, "No data", Toast.LENGTH_LONG).show()
+            else -> while (cursor?.moveToNext() == true) {
+                count++
+            }
+
+        }
+        return count
+    }
+
+    private fun countGoalsDifficultyMedium(): Float {
+        val cursor = viewModel.goalsDB?.readDataGoalsDifficultyMedium()
+        var count: Float = 0f
+
+        when (cursor?.count) {
+            0 -> Toast.makeText(context, "No data", Toast.LENGTH_LONG).show()
+            else -> while (cursor?.moveToNext() == true) {
+                count++
+            }
+
+        }
+        return count
+    }
+
+    private fun countGoalsDifficultyHard(): Float {
+        val cursor = viewModel.goalsDB?.readDataGoalsDifficultyHard()
+        var count: Float = 0f
+
+        when (cursor?.count) {
+            0 -> Toast.makeText(context, "No data", Toast.LENGTH_LONG).show()
+            else -> while (cursor?.moveToNext() == true) {
+                count++
+            }
+
+        }
+        return count
     }
 }
