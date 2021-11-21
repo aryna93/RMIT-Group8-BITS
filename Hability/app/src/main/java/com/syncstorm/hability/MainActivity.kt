@@ -46,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         // menu should be considered as top level destinations.
         appBarConfiguration = AppBarConfiguration(
             setOf(
-
                 R.id.nav_home,
                 R.id.nav_calendar,
                 R.id.nav_scheduler,
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         val navController = findNavController(R.id.nav_host_fragment_content_main)
-        navController.navigate(R.id.nav_calendar)
+        //navController.navigate(R.id.nav_calendar)
         return true
     }
 
