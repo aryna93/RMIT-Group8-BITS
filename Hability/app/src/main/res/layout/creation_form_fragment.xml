@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/linearLayout">
+
+    <TextView
+        android:id="@+id/textViewTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task Title:" />
+
+    <EditText
+        android:id="@+id/editTextTaskTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Enter a title..." />
+
+    <TextView
+        android:id="@+id/textViewTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task Description:" />
+
+    <EditText
+        android:id="@+id/editTextTaskDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="text"
+        android:hint="Enter a description..." />
+
+    <TextView
+        android:id="@+id/textViewTaskStartDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task Start Time:" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <DatePicker
+            android:id="@+id/datePickerStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginRight="-30dp"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"/>
+        <TimePicker
+            android:id="@+id/timePickerStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:layout_marginLeft="-60dp"
+            android:layout_centerHorizontal="true"
+            android:timePickerMode="spinner"/>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/textViewTaskEndDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task End Time:" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <DatePicker
+            android:id="@+id/datePickerEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:layout_marginLeft="-50dp"
+            android:layout_marginRight="-30dp"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"/>
+        <TimePicker
+            android:id="@+id/timePickerEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="0.7"
+            android:scaleY="0.7"
+            android:layout_marginLeft="-60dp"
+            android:layout_centerHorizontal="true"
+            android:timePickerMode="spinner"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewtaskCategoryLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose a category:" />
+
+    <Spinner
+        android:id="@+id/taskCategorySpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <Button
+        android:id="@+id/buttonCreationForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CREATE" />
+
+
+</LinearLayout>

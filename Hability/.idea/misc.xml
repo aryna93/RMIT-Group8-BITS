@@ -3,6 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/layout/calendar_day_recyclerview.xml" value="0.5541666666666667" />
+        <entry key="app/src/main/res/layout/creation_form_fragment.xml" value="0.3307291666666667" />
+        <entry key="app/src/main/res/layout/fragment_cal_day.xml" value="0.3605072463768116" />
+        <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.3605072463768116" />
+        <entry key="app/src/main/res/layout/calendar_day_recyclerview.xml" value="0.31301939058171746" />
+        <entry key="app/src/main/res/layout/calendar_month_recyclerview.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/calendar_week_recyclerview.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/creation_form_fragment.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/fragment_cal_day.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/fragment_cal_month.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/fragment_cal_week.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/fragment_stats_tasks.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/main.xml" value="0.3625" />
+        <entry key="app/src/main/res/layout/calendar_day_recyclerview.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/creation_form_fragment.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_cal_day.xml" value="0.5" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.41302083333333334" />
         <entry key="app/src/main/res/drawable/ic_add.xml" value="0.41302083333333334" />
         <entry key="app/src/main/res/drawable/ic_add2.xml" value="0.41302083333333334" />
@@ -23,11 +40,6 @@
         <entry key="app/src/main/res/layout/fragment_add_goal2.xml" value="0.26481481481481484" />
         <entry key="app/src/main/res/layout/fragment_add_goals.xml" value="0.335" />
         <entry key="app/src/main/res/layout/fragment_add_goals2.xml" value="0.5635416666666667" />
-        <entry key="app/src/main/res/layout/fragment_add_task.xml" value="0.36594202898550726" />
-        <entry key="app/src/main/res/layout/fragment_cal_day.xml" value="0.2740628166160081" />
-        <entry key="app/src/main/res/layout/fragment_cal_month.xml" value="0.2740628166160081" />
-        <entry key="app/src/main/res/layout/fragment_cal_week.xml" value="0.2672239108409321" />
-        <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_date_picker_goal.xml" value="0.2490740740740741" />
         <entry key="app/src/main/res/layout/fragment_day.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3229166666666667" />
@@ -37,7 +49,6 @@
         <entry key="app/src/main/res/layout/fragment_stats_day.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_stats_goals.xml" value="0.37228260869565216" />
         <entry key="app/src/main/res/layout/fragment_stats_month.xml" value="0.2740628166160081" />
-        <entry key="app/src/main/res/layout/fragment_stats_tasks.xml" value="0.37228260869565216" />
         <entry key="app/src/main/res/layout/fragment_stats_week.xml" value="0.2740628166160081" />
         <entry key="app/src/main/res/layout/fragment_up_goals.xml" value="0.262037037037037" />
         <entry key="app/src/main/res/layout/fragment_update_goal.xml" value="0.45" />

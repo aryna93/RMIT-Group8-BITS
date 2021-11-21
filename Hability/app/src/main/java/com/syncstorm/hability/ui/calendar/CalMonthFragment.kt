@@ -5,7 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
+import com.syncstorm.hability.database.DatabaseHandler
+import com.syncstorm.hability.database.TaskModelClass
+import org.joda.time.format.DateTimeFormat
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +42,50 @@ class CalMonthFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cal_month, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerview = view.findViewById<RecyclerView>(R.id.recyclerviewMonth)
+        val context = requireContext()
+        val db = DatabaseHandler(context)
+        val data = db.readTask()
+        val getStartEndDate: DateTimeHelper.StartEndDate =
+            DateTimeHelper.getCurrentMonthStartEndDate()
+        val startMonthDate =
+            getStartEndDate.startDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
+        val endMonthDate = getStartEndDate.endDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
+        val textViewTodayDate: TextView = view.findViewById(R.id.textViewMonthStartEndDate)
+        textViewTodayDate.text = "This month: " + startMonthDate + "  |  " + endMonthDate
+        val calC = CalendarController(context)
+        val monthDates: MutableList<String> =
+            calC.DatesBetweeen(getStartEndDate.startDate, getStartEndDate.endDate)
+
+        val allTasks: MutableList<TaskModelClass> = data
+        val monthTasks: MutableList<TaskModelClass> = ArrayList()
+
+        for (i in allTasks.indices) {
+            for (d in monthDates.indices) {
+                if (allTasks[i].taskStartDate == monthDates[d]) {
+                    val monthTask = TaskModelClass()
+                    monthTask.taskID = allTasks[i].taskID
+                    monthTask.taskName = allTasks[i].taskName
+                    monthTask.taskDescription = allTasks[i].taskDescription
+                    monthTask.taskStatus = allTasks[i].taskStatus
+                    monthTask.taskCategory = allTasks[i].taskCategory
+                    monthTask.taskStartDate = allTasks[i].taskStartDate
+                    monthTask.taskStartTime = allTasks[i].taskStartTime
+                    monthTask.taskEndDate = allTasks[i].taskEndDate
+                    monthTask.taskEndTime = allTasks[i].taskEndTime
+                    monthTasks.add(monthTask)
+                }
+            }
+        }
+
+        val adapter = CalMonthAdapter(monthTasks)
+        recyclerview.adapter = adapter
+        recyclerview.layoutManager = LinearLayoutManager(context)
     }
 
     companion object {

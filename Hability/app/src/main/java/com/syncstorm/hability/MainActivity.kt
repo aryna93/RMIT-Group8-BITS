@@ -13,6 +13,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.syncstorm.hability.database.DatabaseHandler
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.syncstorm.hability.database.DatabaseHelper
@@ -35,10 +36,10 @@ class MainActivity : AppCompatActivity() {
 
         setSupportActionBar(binding.appBarMain.toolbar)
 
-
         val drawerLayout: DrawerLayout = binding.drawerLayout
         val navView: NavigationView = binding.navView
         val navController = findNavController(R.id.nav_host_fragment_content_main)
+
 
 
         // Passing each menu ID as a set of Ids because each
@@ -62,6 +63,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        navController.navigate(R.id.nav_calendar)
         return true
     }
 

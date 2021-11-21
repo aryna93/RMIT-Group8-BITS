@@ -32,7 +32,6 @@ class StatisticsFragment : Fragment() {
 
         viewModel.adapterStats = FragmentAdapterStats(childFragmentManager, lifecycle)
         viewPager2Stats.adapter = viewModel.adapterStats
-
         viewModel.tabLayoutStats?.addTab(viewModel.tabLayoutStats?.newTab()!!.setText("Tasks"))
         viewModel.tabLayoutStats?.addTab(viewModel.tabLayoutStats?.newTab()!!.setText("Goals"))
 

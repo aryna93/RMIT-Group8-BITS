@@ -1,15 +1,74 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.statistics.StatsTasksFragment">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            tools:context=".ui.statistics.StatsTasksFragment">
+            <TextView
+                android:id="@+id/tvAllStats"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:text="Overall Active Stats" />
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="Stats Tasks" />
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChartTasks"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_margin="40dp"
+                />
 
-</FrameLayout>
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:id="@+id/pieChartStats"/>
+
+        <TextView
+            android:id="@+id/tvDayStats"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="80dp"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:text="Today's Active Stats" />
+
+        <com.github.mikephil.charting.charts.BarChart
+            android:id="@+id/barChartDayTasks"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:layout_margin="40dp"
+            />
+
+        <com.github.mikephil.charting.charts.PieChart
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:id="@+id/pieChartDayStats"/>
+
+            <TextView
+                android:id="@+id/tvMonthStats"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="80dp"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+                android:text="This Month's Active Stats" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/barChartMonthTasks"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:layout_margin="40dp"
+                />
+
+            <com.github.mikephil.charting.charts.PieChart
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                android:id="@+id/pieChartMonthStats"/>
+
+        </LinearLayout>
+
+</ScrollView>

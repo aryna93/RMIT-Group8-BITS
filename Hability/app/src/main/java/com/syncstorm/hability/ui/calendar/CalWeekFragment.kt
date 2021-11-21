@@ -5,7 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.syncstorm.hability.R
+import com.syncstorm.hability.database.DatabaseHandler
+import com.syncstorm.hability.database.TaskModelClass
+import org.joda.time.format.DateTimeFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -36,6 +44,48 @@ class CalWeekFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_cal_week, container, false)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerview = view.findViewById<RecyclerView>(R.id.recyclerviewWeek)
+        val context = requireContext()
+        val db = DatabaseHandler(context)
+        val data = db.readTask()
+        val getStartEndDate: DateTimeHelper.StartEndDate = DateTimeHelper.getCurrentWeekStartEndDate()
+        val startWeekDate = getStartEndDate.startDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
+        val endWeekDate = getStartEndDate.endDate.toString(DateTimeFormat.forPattern("dd/MM/yyyy"))
+        val textViewTodayDate: TextView = view.findViewById(R.id.textViewWeekStartEndDate)
+        textViewTodayDate.text = "This week: " + startWeekDate + "  |  " + endWeekDate
+        val calC = CalendarController(context)
+        val weekDates: MutableList<String> = calC.DatesBetweeen(getStartEndDate.startDate, getStartEndDate.endDate)
+
+        val allTasks: MutableList<TaskModelClass> = data
+        val weekTasks: MutableList<TaskModelClass> = ArrayList()
+
+        for (i in allTasks.indices ) {
+            for (d in weekDates.indices) {
+                if (allTasks[i].taskStartDate == weekDates[d]) {
+                    val weekTask = TaskModelClass()
+                    weekTask.taskID = allTasks[i].taskID
+                    weekTask.taskName = allTasks[i].taskName
+                    weekTask.taskDescription = allTasks[i].taskDescription
+                    weekTask.taskStatus = allTasks[i].taskStatus
+                    weekTask.taskCategory = allTasks[i].taskCategory
+                    weekTask.taskStartDate = allTasks[i].taskStartDate
+                    weekTask.taskStartTime = allTasks[i].taskStartTime
+                    weekTask.taskEndDate  = allTasks[i].taskEndDate
+                    weekTask.taskEndTime = allTasks[i].taskEndTime
+                    weekTasks.add(weekTask)
+                }
+            }
+        }
+
+        val adapter = CalWeekAdapter(weekTasks)
+        recyclerview.adapter = adapter
+        recyclerview.layoutManager = LinearLayoutManager(context)
+
     }
 
     companion object {
