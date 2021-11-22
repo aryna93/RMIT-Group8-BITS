@@ -99,7 +99,7 @@ class UpdateGoal : Fragment(), DatePickerDialog.OnDateSetListener {
 
 
     override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        viewModel.textViewUpdateStartDateGoal?.text = "$dayOfMonth/$month/$year"
+        viewModel.textViewUpdateStartDateGoal?.text = "$dayOfMonth/${month+1}/$year"
     }
 
     private fun showDatePickerDialog() {

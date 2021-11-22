@@ -59,7 +59,7 @@ class AddGoals : Fragment(), DatePickerDialog.OnDateSetListener {
     }
 
     override fun onDateSet(p0: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        viewModel.textViewAddStartDateGoal?.text = "$dayOfMonth/$month/$year"
+        viewModel.textViewAddStartDateGoal?.text = "$dayOfMonth/${month+1}/$year"
     }
 
     private fun showDatePickerDialog() {
